@@ -1,0 +1,16 @@
+[{
+        "name": "中国省市区三联动",
+        "file": "CHINA-PCA.json",
+        "source": "https://github.com/modood/Administrative-divisions-of-China"
+    },
+    {
+        "name": "中国省市区镇四联动",
+        "file": "CHINA-PCAS.json",
+        "source": "https://github.com/modood/Administrative-divisions-of-China"
+    },
+    {
+        "name": "行业分类",
+        "file": "CHINA-ICNEA.json",
+        "source": "http://www.stats.gov.cn/tjsj/tjbz/hyflbz/201710/P020181022345132273248.pdf"
+    }
+]
