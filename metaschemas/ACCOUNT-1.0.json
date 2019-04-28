@@ -1,0 +1,90 @@
+{
+  "entity": "Account",
+  "entityLabel": "客户",
+  "nameField": "accountName",
+  "fields": [{
+      "field": "website",
+      "fieldLabel": "网站",
+      "displayType": "URL",
+      "nullable": true,
+      "updatable": true
+    },
+    {
+      "field": "address",
+      "fieldLabel": "地址",
+      "displayType": "TEXT",
+      "nullable": true,
+      "updatable": true
+    },
+    {
+      "field": "accountName",
+      "fieldLabel": "客户名称",
+      "displayType": "TEXT",
+      "nullable": false,
+      "updatable": true
+    },
+    {
+      "field": "industry",
+      "fieldLabel": "所属行业",
+      "displayType": "CLASSIFICATION",
+      "nullable": true,
+      "updatable": true,
+      "extConfig": {
+        "classification": "018-0000000000000002"
+      }
+    },
+    {
+      "field": "telephone",
+      "fieldLabel": "电话",
+      "displayType": "PHONE",
+      "nullable": false,
+      "updatable": true
+    },
+    {
+      "field": "source",
+      "fieldLabel": "来源",
+      "displayType": "PICKLIST",
+      "nullable": true,
+      "updatable": true,
+      "items": [
+        [
+          "百度",
+          false
+        ],
+        [
+          "老客户介绍",
+          false
+        ],
+        [
+          "自主注册",
+          true
+        ],
+        [
+          "其他",
+          false
+        ]
+      ]
+    },
+    {
+      "field": "accountNumber",
+      "fieldLabel": "客户编号",
+      "displayType": "SERIES",
+      "nullable": false,
+      "updatable": false,
+      "extConfig": {
+        "seriesZero": "N",
+        "seriesFormat": "ACC-{YYYYMM}{0000}"
+      }
+    },
+    {
+      "field": "location",
+      "fieldLabel": "所在地区",
+      "displayType": "CLASSIFICATION",
+      "nullable": true,
+      "updatable": true,
+      "extConfig": {
+        "classification": "018-0000000000000001"
+      }
+    }
+  ]
+}
