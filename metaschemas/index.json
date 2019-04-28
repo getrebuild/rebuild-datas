@@ -1,0 +1,13 @@
+[{
+    "name": "客户",
+    "file": "ACCOUNT-1.0.json",
+    "source": "RB https://getrebuild.com/",
+    "updated": "2019-04-28"
+  },
+  {
+    "name": "订单 (含明细)",
+    "file": "SALESORDER-1.0.json",
+    "source": "RB https://getrebuild.com/",
+    "updated": "2019-04-28"
+  }
+]
