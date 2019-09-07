@@ -3,4 +3,4 @@
 
 ## 数据目录
 - [classifications](classifications) 分类数据
-- [modules](categories) 实体模块
+- [metaschemas](metaschemas) 实体元数据
