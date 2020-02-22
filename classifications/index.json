@@ -6,9 +6,9 @@
         "updated": "2019-04-29"
     },
     {
-        "name": "国标行业分类二级",
+        "name": "国标行业分类二级 (GB/T 4754-2017)",
         "file": "CHINA-ICNEA.json",
         "author": "REBUILD",
-        "source": "http://www.stats.gov.cn/tjsj/tjbz/hyflbz/201710/P020181022345132273248.pdf"
+        "source": "http://www.stats.gov.cn/tjsj/tjbz/"
     }
 ]
