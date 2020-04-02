@@ -1,8 +1,20 @@
 [{
-    "name": "客户",
-    "file": "ACCOUNT-1.0.json",
-    "source": "https://getrebuild.com/",
-    "author": "REBUILD",
-    "updated": "2019-04-29"
-  }
-]
+  "name": "客户",
+  "file": "ACCOUNT-1.0.json",
+  "source": "https://getrebuild.com/",
+  "author": "REBUILD",
+  "updated": "2019-04-29"
+}, {
+  "name": "产品",
+  "file": "PRODUCT-1.0.json",
+  "source": "https://getrebuild.com/",
+  "author": "REBUILD",
+  "updated": "2020-04-02"
+}, {
+  "name": "订单",
+  "file": "SALESORDER-1.0.json",
+  "source": "https://getrebuild.com/",
+  "author": "REBUILD",
+  "updated": "2020-04-02",
+  "refs": ["ACCOUNT-1.0.json", "PRODUCT-1.0.json"]
+}]

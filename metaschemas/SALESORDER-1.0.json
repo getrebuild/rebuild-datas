@@ -1,0 +1,143 @@
+{
+  "entity": "SalesOrder",
+  "entityLabel": "订单",
+  "nameField": "orderNumber",
+  "fields": [{
+      "field": "orderNumber",
+      "fieldLabel": "订单编号",
+      "displayType": "SERIES",
+      "nullable": false,
+      "updatable": false,
+      "repeatable": false,
+      "extConfig": {
+        "seriesZero": "N",
+        "seriesFormat": "ORD-{YYYYMM}-{0000}"
+      }
+    },
+    {
+      "field": "relatedAccount",
+      "fieldLabel": "相关客户",
+      "displayType": "REFERENCE",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true,
+      "refEntity": "Account",
+      "refEntityLabel": "客户"
+    },
+    {
+      "field": "totalAmount",
+      "fieldLabel": "总计金额",
+      "displayType": "DECIMAL",
+      "nullable": true,
+      "updatable": true,
+      "repeatable": true,
+      "extConfig": {
+        "decimalFormat": "##,##0.00",
+        "notNegative": false
+      }
+    }
+  ],
+  "layouts": {
+    "FORM": [{
+        "field": "orderNumber",
+        "isFull": false
+      },
+      {
+        "field": "relatedAccount",
+        "isFull": false
+      },
+      {
+        "field": "totalAmount",
+        "isFull": false
+      }
+    ],
+    "DATALIST": [{
+        "field": "orderNumber"
+      },
+      {
+        "field": "relatedAccount"
+      },
+      {
+        "field": "totalAmount"
+      },
+      {
+        "field": "createdOn"
+      },
+      {
+        "field": "createdBy"
+      },
+      {
+        "field": "owningUser"
+      },
+      {
+        "field": "owningDept"
+      }
+    ]
+  },
+  "filters": {
+    "我的订单": {
+      "items": [{
+        "op": "SFU",
+        "field": "owningUser",
+        "index": 1
+      }],
+      "entity": "SalesOrder"
+    }
+  },
+  "slave": {
+    "entity": "SalesOrderItem",
+    "entityLabel": "订单明细",
+    "nameField": "createdOn",
+    "fields": [{
+        "field": "amount",
+        "fieldLabel": "金额",
+        "displayType": "DECIMAL",
+        "nullable": true,
+        "updatable": true,
+        "repeatable": true,
+        "extConfig": {
+          "decimalFormat": "##,##0.00",
+          "notNegative": false
+        }
+      },
+      {
+        "field": "productId",
+        "fieldLabel": "产品",
+        "displayType": "REFERENCE",
+        "nullable": false,
+        "updatable": true,
+        "repeatable": true,
+        "refEntity": "Product",
+        "refEntityLabel": "产品"
+      },
+      {
+        "field": "quantity",
+        "fieldLabel": "数量",
+        "displayType": "NUMBER",
+        "nullable": true,
+        "updatable": true,
+        "repeatable": true,
+        "defaultValue": "1",
+        "extConfig": {
+          "notNegative": true
+        }
+      }
+    ],
+    "layouts": {
+      "DATALIST": [{
+          "field": "SalesOrderId"
+        },
+        {
+          "field": "productId"
+        },
+        {
+          "field": "quantity"
+        },
+        {
+          "field": "amount"
+        }
+      ]
+    },
+    "filters": {}
+  }
+}

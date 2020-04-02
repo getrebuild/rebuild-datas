@@ -1,0 +1,51 @@
+{
+  "entity": "Product",
+  "entityLabel": "产品",
+  "nameField": "productName",
+  "fields": [{
+      "field": "unitPrice",
+      "fieldLabel": "单价",
+      "displayType": "DECIMAL",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true,
+      "extConfig": {
+        "decimalFormat": "##,##0.00",
+        "notNegative": true
+      }
+    },
+    {
+      "field": "productName",
+      "fieldLabel": "产品名称",
+      "displayType": "TEXT",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": false
+    }
+  ],
+  "layouts": {
+    "FORM": [{
+        "field": "productName",
+        "isFull": false
+      },
+      {
+        "field": "unitPrice",
+        "isFull": false
+      }
+    ],
+    "DATALIST": [{
+        "field": "productName"
+      },
+      {
+        "field": "unitPrice"
+      },
+      {
+        "field": "createdOn"
+      },
+      {
+        "field": "createdBy"
+      }
+    ]
+  },
+  "filters": {}
+}

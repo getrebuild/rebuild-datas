@@ -21,7 +21,8 @@
       "fieldLabel": "客户名称",
       "displayType": "TEXT",
       "nullable": false,
-      "updatable": true
+      "updatable": true,
+      "repeatable": false
     },
     {
       "field": "industry",
