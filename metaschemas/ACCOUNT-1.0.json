@@ -3,20 +3,6 @@
   "entityLabel": "客户",
   "nameField": "accountName",
   "fields": [{
-      "field": "website",
-      "fieldLabel": "网站",
-      "displayType": "URL",
-      "nullable": true,
-      "updatable": true
-    },
-    {
-      "field": "address",
-      "fieldLabel": "地址",
-      "displayType": "TEXT",
-      "nullable": true,
-      "updatable": true
-    },
-    {
       "field": "accountName",
       "fieldLabel": "客户名称",
       "displayType": "TEXT",
@@ -25,21 +11,42 @@
       "repeatable": false
     },
     {
+      "field": "telephone",
+      "fieldLabel": "电话",
+      "displayType": "PHONE",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true
+    },
+    {
+      "field": "address",
+      "fieldLabel": "地址",
+      "displayType": "TEXT",
+      "nullable": true,
+      "updatable": true,
+      "repeatable": true
+    },
+    {
       "field": "industry",
       "fieldLabel": "所属行业",
       "displayType": "CLASSIFICATION",
       "nullable": true,
       "updatable": true,
+      "repeatable": true,
       "extConfig": {
         "classification": "018-0000000000000002"
       }
     },
     {
-      "field": "telephone",
-      "fieldLabel": "电话",
-      "displayType": "PHONE",
-      "nullable": false,
-      "updatable": true
+      "field": "location",
+      "fieldLabel": "所在地区",
+      "displayType": "CLASSIFICATION",
+      "nullable": true,
+      "updatable": true,
+      "repeatable": true,
+      "extConfig": {
+        "classification": "018-0000000000000001"
+      }
     },
     {
       "field": "source",
@@ -47,6 +54,7 @@
       "displayType": "PICKLIST",
       "nullable": true,
       "updatable": true,
+      "repeatable": true,
       "items": [
         [
           "百度",
@@ -67,25 +75,86 @@
       ]
     },
     {
-      "field": "accountNumber",
-      "fieldLabel": "客户编号",
-      "displayType": "SERIES",
-      "nullable": false,
-      "updatable": false,
-      "extConfig": {
-        "seriesZero": "N",
-        "seriesFormat": "ACC-{YYYYMM}{0000}"
-      }
-    },
-    {
-      "field": "location",
-      "fieldLabel": "所在地区",
-      "displayType": "CLASSIFICATION",
+      "field": "website",
+      "fieldLabel": "网站",
+      "displayType": "URL",
       "nullable": true,
       "updatable": true,
-      "extConfig": {
-        "classification": "018-0000000000000001"
-      }
+      "repeatable": true
     }
-  ]
+  ],
+  "layouts": {
+    "FORM": [{
+        "field": "accountName",
+        "isFull": false
+      },
+      {
+        "field": "telephone",
+        "isFull": false
+      },
+      {
+        "field": "website",
+        "isFull": false
+      },
+      {
+        "field": "address",
+        "isFull": false
+      },
+      {
+        "field": "industry",
+        "isFull": false
+      },
+      {
+        "field": "source",
+        "isFull": false
+      },
+      {
+        "field": "location",
+        "isFull": false
+      },
+      {
+        "field": "owningUser",
+        "isFull": false
+      },
+      {
+        "field": "owningDept",
+        "isFull": false
+      }
+    ],
+    "DATALIST": [{
+        "field": "accountName"
+      },
+      {
+        "field": "telephone"
+      },
+      {
+        "field": "website"
+      },
+      {
+        "field": "source"
+      },
+      {
+        "field": "address"
+      },
+      {
+        "field": "location"
+      },
+      {
+        "field": "industry"
+      },
+      {
+        "field": "createdOn"
+      }
+    ]
+  },
+  "filters": {
+    "我的客户": {
+      "items": [{
+        "op": "SFU",
+        "field": "owningUser",
+        "index": 1
+      }],
+      "entity": "Account"
+    }
+  }
 }
