@@ -19,11 +19,5 @@
   "source": "https://getrebuild.com/",
   "author": "REBUILD",
   "updated": "2020-04-02",
-  "refs": [{
-    "key": "Account",
-    "file": "ACCOUNT-1.0.json"
-  }, {
-    "key": "Product",
-    "file": "PRODUCT-1.0.json"
-  }]
+  "refs": [ "Account", "Product" ]
 }]
