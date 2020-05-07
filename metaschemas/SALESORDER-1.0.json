@@ -124,6 +124,23 @@
       }
     ],
     "layouts": {
+      "FORM": [{
+          "field": "productId",
+          "isFull": false
+        },
+        {
+          "field": "quantity",
+          "isFull": false
+        },
+        {
+          "field": "amount",
+          "isFull": false
+        },
+        {
+          "field": "SalesOrderId",
+          "isFull": false
+        }
+      ],
       "DATALIST": [{
           "field": "SalesOrderId"
         },
