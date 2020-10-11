@@ -1,0 +1,34 @@
+{
+	"entity":"Quotation",
+	"entityIcon":"collection-text",
+	"entityLabel":"报价单",
+	"comments":"报价单是企业在销售过程当中，向客户提供的产品报价清单，也为销售订单提供了一个基本的价格信息",
+	"nameField":"QuotationName",
+	"quickFields":"",
+	"fields":[
+		{
+			"field":"AccountId",
+			"fieldLabel":"相关客户",
+			"displayType":"REFERENCE",
+			"nullable":false,
+			"updatable":true,
+			"repeatable":true,
+			"queryable":true,
+			"refEntity":"Account"
+		},
+		{
+			"field":"QuotationName",
+			"fieldLabel":"主题",
+			"displayType":"TEXT",
+			"nullable":false,
+			"updatable":true,
+			"repeatable":true,
+			"queryable":true
+		}
+	],
+	"layouts":{},
+	"fillins":[],
+	"filters":[],
+	"triggers":[],
+	"approvals":[]
+}
