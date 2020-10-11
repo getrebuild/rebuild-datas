@@ -51,6 +51,6 @@
     "file": "schema-Quotation.json",
     "source": "https://getrebuild.com/",
     "author": "REBUILD",
-    "refs": ["Account"]
+    "refs": ["Account", "SalesOrder"]
   }
 ]

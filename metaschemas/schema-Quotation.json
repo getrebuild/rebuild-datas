@@ -24,6 +24,16 @@
 			"updatable":true,
 			"repeatable":true,
 			"queryable":true
+		},
+		{
+			"field":"xiangguandingdan",
+			"fieldLabel":"相关订单",
+			"displayType":"REFERENCE",
+			"nullable":true,
+			"updatable":true,
+			"repeatable":true,
+			"queryable":true,
+			"refEntity":"SalesOrder"
 		}
 	],
 	"layouts":{},
