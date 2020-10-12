@@ -7,6 +7,16 @@
 	"quickFields":"",
 	"fields":[
 		{
+			"field":"ContactId",
+			"fieldLabel":"联系人",
+			"displayType":"REFERENCE",
+			"nullable":true,
+			"updatable":true,
+			"repeatable":true,
+			"queryable":true,
+			"refEntity":"Contact"
+		},
+		{
 			"field":"AccountId",
 			"fieldLabel":"相关客户",
 			"displayType":"REFERENCE",
@@ -15,6 +25,47 @@
 			"repeatable":true,
 			"queryable":true,
 			"refEntity":"Account"
+		},
+		{
+			"field":"Status",
+			"fieldLabel":"报价阶段",
+			"displayType":"PICKLIST",
+			"nullable":false,
+			"updatable":true,
+			"repeatable":true,
+			"queryable":true,
+			"items":[
+				[
+					"草稿",
+					true,
+					0
+				],
+				[
+					"谈判",
+					false,
+					0
+				],
+				[
+					"已搁置",
+					false,
+					0
+				],
+				[
+					"已确认",
+					false,
+					0
+				],
+				[
+					"赢单关闭",
+					false,
+					0
+				],
+				[
+					"丢单关闭",
+					false,
+					0
+				]
+			]
 		},
 		{
 			"field":"QuotationName",
@@ -26,19 +77,66 @@
 			"queryable":true
 		},
 		{
-			"field":"xiangguandingdan",
-			"fieldLabel":"相关订单",
-			"displayType":"REFERENCE",
-			"nullable":true,
+			"field":"ValidTill",
+			"fieldLabel":"报价有效期",
+			"displayType":"DATE",
+			"nullable":false,
 			"updatable":true,
 			"repeatable":true,
 			"queryable":true,
-			"refEntity":"SalesOrder"
+			"defaultValue":"{NOW + 7Y}",
+			"extConfig":{
+				"dateFormat":"yyyy-MM-dd"
+			}
+		},
+		{
+			"field":"QuoteNumber",
+			"fieldLabel":"报价编号",
+			"displayType":"SERIES",
+			"nullable":false,
+			"updatable":false,
+			"repeatable":false,
+			"queryable":true,
+			"extConfig":{
+				"seriesZero":"Y",
+				"seriesFormat":"QUO-{YYYYMMDD}-{0000}"
+			}
 		}
 	],
 	"layouts":{},
 	"fillins":[],
 	"filters":[],
 	"triggers":[],
-	"approvals":[]
+	"approvals":[
+		{
+			"name":"报价审批",
+			"flowDefinition":{
+				"nodes":[
+					{
+						"type":"start",
+						"nodeId":"ROOT"
+					},
+					{
+						"data":{
+							"selfSelecting":true,
+							"signMode":"OR",
+							"editableFields":[],
+							"users":[]
+						},
+						"type":"approver",
+						"nodeId":"NODE16025084678471"
+					},
+					{
+						"data":{
+							"ccAutoShare":true,
+							"selfSelecting":true,
+							"users":[]
+						},
+						"type":"cc",
+						"nodeId":"NODE16025084762301"
+					}
+				]
+			}
+		}
+	]
 }

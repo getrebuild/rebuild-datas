@@ -7,6 +7,16 @@
 	"quickFields":"SalesOrderName,OrderNumber",
 	"fields":[
 		{
+			"field":"ContactId",
+			"fieldLabel":"联系人",
+			"displayType":"REFERENCE",
+			"nullable":true,
+			"updatable":true,
+			"repeatable":true,
+			"queryable":true,
+			"refEntity":"Contact"
+		},
+		{
 			"field":"SalesOrderName",
 			"fieldLabel":"主题",
 			"displayType":"TEXT",
@@ -46,10 +56,21 @@
 			"updatable":true,
 			"repeatable":true,
 			"queryable":true,
-			"defaultValue":"0",
 			"extConfig":{
 				"decimalFormat":"##,##0.00",
 				"notNegative":true
+			}
+		},
+		{
+			"field":"DueDate",
+			"fieldLabel":"到期日期",
+			"displayType":"DATE",
+			"nullable":true,
+			"updatable":true,
+			"repeatable":true,
+			"queryable":true,
+			"extConfig":{
+				"dateFormat":"yyyy-MM-dd"
 			}
 		},
 		{
@@ -66,6 +87,10 @@
 	"layouts":{
 		"FORM":[
 			{
+				"field":"OrderNumber",
+				"isFull":false
+			},
+			{
 				"field":"SalesOrderName",
 				"isFull":false
 			},
@@ -74,11 +99,19 @@
 				"isFull":false
 			},
 			{
-				"field":"OrderNumber",
+				"field":"ContactId",
+				"isFull":false
+			},
+			{
+				"field":"DueDate",
 				"isFull":false
 			},
 			{
 				"field":"TotalAmount",
+				"isFull":false
+			},
+			{
+				"field":"SourceQuotation",
 				"isFull":false
 			}
 		],
@@ -132,15 +165,16 @@
 							"users":[]
 						},
 						"type":"approver",
-						"nodeId":"NODE16013087253521"
+						"nodeId":"NODE16025084892291"
 					},
 					{
 						"data":{
+							"ccAutoShare":true,
 							"selfSelecting":true,
 							"users":[]
 						},
 						"type":"cc",
-						"nodeId":"NODE16013087305842"
+						"nodeId":"NODE16025084940692"
 					}
 				]
 			}
@@ -150,7 +184,7 @@
 		"entity":"SalesOrderItem",
 		"entityIcon":"format-list-numbered",
 		"entityLabel":"订单明细",
-		"nameField":"createdOn",
+		"nameField":"Quantity",
 		"quickFields":"",
 		"fields":[
 			{
@@ -161,10 +195,22 @@
 				"updatable":true,
 				"repeatable":true,
 				"queryable":true,
-				"defaultValue":"0",
 				"extConfig":{
 					"decimalFormat":"##,##0.00",
 					"notNegative":true
+				}
+			},
+			{
+				"field":"rb3333",
+				"fieldLabel":"333",
+				"displayType":"DECIMAL",
+				"nullable":true,
+				"updatable":true,
+				"repeatable":true,
+				"queryable":true,
+				"extConfig":{
+					"decimalFormat":"##,##0.00",
+					"notNegative":false
 				}
 			},
 			{
@@ -185,7 +231,6 @@
 				"updatable":true,
 				"repeatable":true,
 				"queryable":true,
-				"defaultValue":"0",
 				"extConfig":{
 					"decimalFormat":"##,##0.00",
 					"notNegative":true
@@ -241,6 +286,24 @@
 			{
 				"actionType":"FIELDAGGREGATION",
 				"actionContent":{
+					"targetEntity":"$PRIMARY$.SalesOrderItem",
+					"items":[
+						{
+							"targetField":"SubtotalAmount",
+							"sourceFormula":"{UnitPrice}×{Quantity}",
+							"calcMode":"FORMULA"
+						}
+					],
+					"readonlyFields":true
+				},
+				"name":"订单明细小计",
+				"priority":2,
+				"when":5,
+				"whenTimer":"D:1"
+			},
+			{
+				"actionType":"FIELDAGGREGATION",
+				"actionContent":{
 					"targetEntity":"SalesOrderId.SalesOrder",
 					"items":[
 						{
@@ -251,7 +314,7 @@
 					],
 					"readonlyFields":true
 				},
-				"name":"订单明细汇总到订单",
+				"name":"订单明细汇总到订单金额",
 				"priority":1,
 				"when":7,
 				"whenTimer":"D:1"
