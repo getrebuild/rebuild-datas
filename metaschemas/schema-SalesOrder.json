@@ -95,14 +95,6 @@
 				"isFull":false
 			},
 			{
-				"field":"AccountId",
-				"isFull":false
-			},
-			{
-				"field":"ContactId",
-				"isFull":false
-			},
-			{
 				"field":"DueDate",
 				"isFull":false
 			},
@@ -111,7 +103,19 @@
 				"isFull":false
 			},
 			{
+				"field":"AccountId",
+				"isFull":false
+			},
+			{
+				"field":"ContactId",
+				"isFull":false
+			},
+			{
 				"field":"SourceQuotation",
+				"isFull":false
+			},
+			{
+				"field":"approvalState",
 				"isFull":false
 			}
 		],
@@ -123,30 +127,41 @@
 				"field":"SalesOrderName"
 			},
 			{
-				"field":"AccountId"
+				"field":"DueDate"
 			},
 			{
 				"field":"TotalAmount"
 			},
 			{
+				"field":"AccountId"
+			},
+			{
+				"field":"ContactId"
+			},
+			{
 				"field":"approvalState"
 			},
 			{
-				"field":"createdBy"
-			},
-			{
 				"field":"createdOn"
-			},
-			{
-				"field":"owningUser"
-			},
-			{
-				"field":"owningDept"
 			}
 		]
 	},
 	"fillins":[],
-	"filters":[],
+	"filters":[
+		{
+			"filterName":"我的订单",
+			"config":{
+				"items":[
+					{
+						"op":"SFU",
+						"field":"owningUser",
+						"index":1
+					}
+				],
+				"entity":"SalesOrder"
+			}
+		}
+	],
 	"triggers":[],
 	"approvals":[
 		{
@@ -198,19 +213,6 @@
 				"extConfig":{
 					"decimalFormat":"##,##0.00",
 					"notNegative":true
-				}
-			},
-			{
-				"field":"rb3333",
-				"fieldLabel":"333",
-				"displayType":"DECIMAL",
-				"nullable":true,
-				"updatable":true,
-				"repeatable":true,
-				"queryable":true,
-				"extConfig":{
-					"decimalFormat":"##,##0.00",
-					"notNegative":false
 				}
 			},
 			{

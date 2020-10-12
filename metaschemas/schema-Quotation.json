@@ -4,7 +4,7 @@
 	"entityLabel":"报价单",
 	"comments":"报价单是企业在销售过程当中，向客户提供的产品报价清单，也为销售订单提供了一个基本的价格信息",
 	"nameField":"QuotationName",
-	"quickFields":"",
+	"quickFields":"QuoteNumber,QuotationName",
 	"fields":[
 		{
 			"field":"ContactId",
@@ -103,9 +103,80 @@
 			}
 		}
 	],
-	"layouts":{},
+	"layouts":{
+		"FORM":[
+			{
+				"field":"QuoteNumber",
+				"isFull":false
+			},
+			{
+				"field":"QuotationName",
+				"isFull":false
+			},
+			{
+				"field":"ValidTill",
+				"isFull":false
+			},
+			{
+				"field":"Status",
+				"isFull":false
+			},
+			{
+				"field":"AccountId",
+				"isFull":false
+			},
+			{
+				"field":"ContactId",
+				"isFull":false
+			},
+			{
+				"field":"approvalState",
+				"isFull":false
+			}
+		],
+		"DATALIST":[
+			{
+				"field":"QuoteNumber"
+			},
+			{
+				"field":"QuotationName"
+			},
+			{
+				"field":"Status"
+			},
+			{
+				"field":"ValidTill"
+			},
+			{
+				"field":"ContactId"
+			},
+			{
+				"field":"AccountId"
+			},
+			{
+				"field":"approvalState"
+			},
+			{
+				"field":"createdOn"
+			}
+		]
+	},
 	"fillins":[],
-	"filters":[],
+	"filters":[
+		{
+			"filterName":"我的报价单",
+			"config":{
+				"items":[
+					{
+						"op":"SFU",
+						"field":"owningUser",
+						"index":1
+					}
+				],
+				"entity":"Quotation"
+			}
+		}
+	],
 	"triggers":[],
 	"approvals":[
 		{

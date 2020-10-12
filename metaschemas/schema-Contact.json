@@ -127,13 +127,7 @@
 				"field":"WechatId"
 			},
 			{
-				"field":"OwnAccount"
-			},
-			{
-				"field":"owningUser"
-			},
-			{
-				"field":"owningDept"
+				"field":"createdOn"
 			}
 		]
 	},

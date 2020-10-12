@@ -28,7 +28,7 @@
 			"field":"ContactName",
 			"fieldLabel":"联系人",
 			"displayType":"TEXT",
-			"nullable":true,
+			"nullable":false,
 			"updatable":true,
 			"repeatable":true,
 			"queryable":true
@@ -154,9 +154,6 @@
 			},
 			{
 				"field":"Source"
-			},
-			{
-				"field":"createdBy"
 			},
 			{
 				"field":"createdOn"

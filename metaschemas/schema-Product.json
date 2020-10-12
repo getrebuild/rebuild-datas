@@ -57,11 +57,19 @@
 				"isFull":false
 			},
 			{
-				"field":"unitType",
+				"field":"UnitPrice",
 				"isFull":false
 			},
 			{
-				"field":"unitPrice",
+				"field":"UnitType",
+				"isFull":false
+			},
+			{
+				"field":"createdBy",
+				"isFull":false
+			},
+			{
+				"field":"createdOn",
 				"isFull":false
 			}
 		],
