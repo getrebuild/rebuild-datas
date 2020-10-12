@@ -32,13 +32,13 @@
     "desc": "销售订单是企业与客户之间签订的一种销售协议，销售订单实现企业与客户之间的沟通，实现客户对企业待售货物的一种请求，同时也是企业对客户的一种销售承诺。通过订单信息的维护与管理，实现企业对销售的计划性控制，使企业的销售活动、生产活动、采购活动处于有序、流畅、高效的状态",
     "key": "SalesOrder",
     "file": "schema-SalesOrder.json",
-    "refs": ["Account", "Quotation", "Product"]
+    "refs": ["Account", "Contact", "Product"]
   },
   {
     "name": "报价单",
     "desc": "报价单是企业在销售过程当中，向客户提供的产品报价清单，也为销售订单提供了一个基本的价格信息",
     "key": "Quotation",
     "file": "schema-Quotation.json",
-    "refs": ["Account", "SalesOrder"]
+    "refs": ["Account", "Contact", "SalesOrder"]
   }
 ]
