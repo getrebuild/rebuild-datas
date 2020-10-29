@@ -2,7 +2,8 @@
   "entity": "Product",
   "entityLabel": "产品",
   "nameField": "productName",
-  "fields": [{
+  "fields": [
+    {
       "field": "unitPrice",
       "fieldLabel": "单价",
       "displayType": "DECIMAL",
@@ -24,7 +25,8 @@
     }
   ],
   "layouts": {
-    "FORM": [{
+    "FORM": [
+      {
         "field": "productName",
         "isFull": false
       },
@@ -33,7 +35,8 @@
         "isFull": false
       }
     ],
-    "DATALIST": [{
+    "DATALIST": [
+      {
         "field": "productName"
       },
       {

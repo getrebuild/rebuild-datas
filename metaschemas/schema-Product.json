@@ -1,95 +1,87 @@
 {
-	"entity":"Product",
-	"entityIcon":"collection-item",
-	"entityLabel":"产品",
-	"comments":"产品是企业向客户提供的各种有价值的物品、服务、信息、人力、组织等，或它们的组合，可以是有形的或者无形的。但是他们均可以被某种单位或单位组合进行度量，同时表明价值。产品作为企业提供服务的核心，整个企业的营销业务是围绕着产品展开的",
-	"nameField":"ProductName",
-	"quickFields":"ProductName",
-	"fields":[
-		{
-			"field":"UnitType",
-			"fieldLabel":"单位",
-			"displayType":"PICKLIST",
-			"nullable":false,
-			"updatable":true,
-			"repeatable":true,
-			"queryable":true,
-			"items":[
-				[
-					"套",
-					true,
-					0
-				],
-				[
-					"支",
-					false,
-					0
-				]
-			]
-		},
-		{
-			"field":"UnitPrice",
-			"fieldLabel":"单价",
-			"displayType":"DECIMAL",
-			"nullable":false,
-			"updatable":true,
-			"repeatable":true,
-			"queryable":true,
-			"extConfig":{
-				"decimalFormat":"##,##0.00",
-				"notNegative":true
-			}
-		},
-		{
-			"field":"ProductName",
-			"fieldLabel":"产品名称",
-			"displayType":"TEXT",
-			"nullable":false,
-			"updatable":true,
-			"repeatable":true,
-			"queryable":true
-		}
-	],
-	"layouts":{
-		"FORM":[
-			{
-				"field":"ProductName",
-				"isFull":false
-			},
-			{
-				"field":"UnitPrice",
-				"isFull":false
-			},
-			{
-				"field":"UnitType",
-				"isFull":false
-			},
-			{
-				"field":"createdBy",
-				"isFull":false
-			},
-			{
-				"field":"createdOn",
-				"isFull":false
-			}
-		],
-		"DATALIST":[
-			{
-				"field":"ProductName"
-			},
-			{
-				"field":"UnitPrice"
-			},
-			{
-				"field":"UnitType"
-			},
-			{
-				"field":"createdOn"
-			}
-		]
-	},
-	"fillins":[],
-	"filters":[],
-	"triggers":[],
-	"approvals":[]
+  "entity": "Product",
+  "entityIcon": "collection-item",
+  "entityLabel": "产品",
+  "comments": "产品是企业向客户提供的各种有价值的物品、服务、信息、人力、组织等，或它们的组合，可以是有形的或者无形的。但是他们均可以被某种单位或单位组合进行度量，同时表明价值。产品作为企业提供服务的核心，整个企业的营销业务是围绕着产品展开的",
+  "nameField": "ProductName",
+  "quickFields": "ProductName",
+  "fields": [
+    {
+      "field": "UnitType",
+      "fieldLabel": "单位",
+      "displayType": "PICKLIST",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true,
+      "queryable": true,
+      "items": [
+        ["套", true, 0],
+        ["支", false, 0]
+      ]
+    },
+    {
+      "field": "UnitPrice",
+      "fieldLabel": "单价",
+      "displayType": "DECIMAL",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true,
+      "queryable": true,
+      "extConfig": {
+        "decimalFormat": "##,##0.00",
+        "notNegative": true
+      }
+    },
+    {
+      "field": "ProductName",
+      "fieldLabel": "产品名称",
+      "displayType": "TEXT",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true,
+      "queryable": true
+    }
+  ],
+  "layouts": {
+    "FORM": [
+      {
+        "field": "ProductName",
+        "isFull": false
+      },
+      {
+        "field": "UnitPrice",
+        "isFull": false
+      },
+      {
+        "field": "UnitType",
+        "isFull": false
+      },
+      {
+        "field": "createdBy",
+        "isFull": false
+      },
+      {
+        "field": "createdOn",
+        "isFull": false
+      }
+    ],
+    "DATALIST": [
+      {
+        "field": "ProductName"
+      },
+      {
+        "field": "UnitPrice"
+      },
+      {
+        "field": "UnitType"
+      },
+      {
+        "field": "createdOn"
+      }
+    ]
+  },
+  "fillins": [],
+  "filters": [],
+  "triggers": [],
+  "approvals": []
 }

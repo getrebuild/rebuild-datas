@@ -2,7 +2,8 @@
   "entity": "SalesOrder",
   "entityLabel": "订单",
   "nameField": "orderNumber",
-  "fields": [{
+  "fields": [
+    {
       "field": "orderNumber",
       "fieldLabel": "订单编号",
       "displayType": "SERIES",
@@ -38,7 +39,8 @@
     }
   ],
   "layouts": {
-    "FORM": [{
+    "FORM": [
+      {
         "field": "orderNumber",
         "isFull": false
       },
@@ -51,7 +53,8 @@
         "isFull": false
       }
     ],
-    "DATALIST": [{
+    "DATALIST": [
+      {
         "field": "orderNumber"
       },
       {
@@ -76,11 +79,13 @@
   },
   "filters": {
     "我的订单": {
-      "items": [{
-        "op": "SFU",
-        "field": "owningUser",
-        "index": 1
-      }],
+      "items": [
+        {
+          "op": "SFU",
+          "field": "owningUser",
+          "index": 1
+        }
+      ],
       "entity": "SalesOrder"
     }
   },
@@ -88,7 +93,8 @@
     "entity": "SalesOrderItem",
     "entityLabel": "订单明细",
     "nameField": "createdOn",
-    "fields": [{
+    "fields": [
+      {
         "field": "amount",
         "fieldLabel": "金额",
         "displayType": "DECIMAL",
@@ -124,7 +130,8 @@
       }
     ],
     "layouts": {
-      "FORM": [{
+      "FORM": [
+        {
           "field": "productId",
           "isFull": false
         },
@@ -141,7 +148,8 @@
           "isFull": false
         }
       ],
-      "DATALIST": [{
+      "DATALIST": [
+        {
           "field": "SalesOrderId"
         },
         {

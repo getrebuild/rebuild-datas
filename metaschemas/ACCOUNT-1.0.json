@@ -2,7 +2,8 @@
   "entity": "Account",
   "entityLabel": "客户",
   "nameField": "accountName",
-  "fields": [{
+  "fields": [
+    {
       "field": "accountName",
       "fieldLabel": "客户名称",
       "displayType": "TEXT",
@@ -56,22 +57,10 @@
       "updatable": true,
       "repeatable": true,
       "items": [
-        [
-          "百度",
-          false
-        ],
-        [
-          "老客户介绍",
-          false
-        ],
-        [
-          "自主注册",
-          true
-        ],
-        [
-          "其他",
-          false
-        ]
+        ["百度", false],
+        ["老客户介绍", false],
+        ["自主注册", true],
+        ["其他", false]
       ]
     },
     {
@@ -84,7 +73,8 @@
     }
   ],
   "layouts": {
-    "FORM": [{
+    "FORM": [
+      {
         "field": "accountName",
         "isFull": false
       },
@@ -121,7 +111,8 @@
         "isFull": false
       }
     ],
-    "DATALIST": [{
+    "DATALIST": [
+      {
         "field": "accountName"
       },
       {
@@ -149,11 +140,13 @@
   },
   "filters": {
     "我的客户": {
-      "items": [{
-        "op": "SFU",
-        "field": "owningUser",
-        "index": 1
-      }],
+      "items": [
+        {
+          "op": "SFU",
+          "field": "owningUser",
+          "index": 1
+        }
+      ],
       "entity": "Account"
     }
   }

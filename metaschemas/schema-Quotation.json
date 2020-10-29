@@ -1,213 +1,189 @@
 {
-	"entity":"Quotation",
-	"entityIcon":"collection-text",
-	"entityLabel":"报价单",
-	"comments":"报价单是企业在销售过程当中，向客户提供的产品报价清单，也为销售订单提供了一个基本的价格信息",
-	"nameField":"QuotationName",
-	"quickFields":"QuoteNumber,QuotationName",
-	"fields":[
-		{
-			"field":"ContactId",
-			"fieldLabel":"联系人",
-			"displayType":"REFERENCE",
-			"nullable":true,
-			"updatable":true,
-			"repeatable":true,
-			"queryable":true,
-			"refEntity":"Contact"
-		},
-		{
-			"field":"AccountId",
-			"fieldLabel":"相关客户",
-			"displayType":"REFERENCE",
-			"nullable":false,
-			"updatable":true,
-			"repeatable":true,
-			"queryable":true,
-			"refEntity":"Account"
-		},
-		{
-			"field":"Status",
-			"fieldLabel":"报价阶段",
-			"displayType":"PICKLIST",
-			"nullable":false,
-			"updatable":true,
-			"repeatable":true,
-			"queryable":true,
-			"items":[
-				[
-					"草稿",
-					true,
-					0
-				],
-				[
-					"谈判",
-					false,
-					0
-				],
-				[
-					"已搁置",
-					false,
-					0
-				],
-				[
-					"已确认",
-					false,
-					0
-				],
-				[
-					"赢单关闭",
-					false,
-					0
-				],
-				[
-					"丢单关闭",
-					false,
-					0
-				]
-			]
-		},
-		{
-			"field":"QuotationName",
-			"fieldLabel":"主题",
-			"displayType":"TEXT",
-			"nullable":false,
-			"updatable":true,
-			"repeatable":true,
-			"queryable":true
-		},
-		{
-			"field":"ValidTill",
-			"fieldLabel":"报价有效期",
-			"displayType":"DATE",
-			"nullable":false,
-			"updatable":true,
-			"repeatable":true,
-			"queryable":true,
-			"defaultValue":"{NOW + 7Y}",
-			"extConfig":{
-				"dateFormat":"yyyy-MM-dd"
-			}
-		},
-		{
-			"field":"QuoteNumber",
-			"fieldLabel":"报价编号",
-			"displayType":"SERIES",
-			"nullable":false,
-			"updatable":false,
-			"repeatable":false,
-			"queryable":true,
-			"extConfig":{
-				"seriesZero":"Y",
-				"seriesFormat":"QUO-{YYYYMMDD}-{0000}"
-			}
-		}
-	],
-	"layouts":{
-		"FORM":[
-			{
-				"field":"QuoteNumber",
-				"isFull":false
-			},
-			{
-				"field":"QuotationName",
-				"isFull":false
-			},
-			{
-				"field":"ValidTill",
-				"isFull":false
-			},
-			{
-				"field":"Status",
-				"isFull":false
-			},
-			{
-				"field":"AccountId",
-				"isFull":false
-			},
-			{
-				"field":"ContactId",
-				"isFull":false
-			},
-			{
-				"field":"approvalState",
-				"isFull":false
-			}
-		],
-		"DATALIST":[
-			{
-				"field":"QuoteNumber"
-			},
-			{
-				"field":"QuotationName"
-			},
-			{
-				"field":"Status"
-			},
-			{
-				"field":"ValidTill"
-			},
-			{
-				"field":"ContactId"
-			},
-			{
-				"field":"AccountId"
-			},
-			{
-				"field":"approvalState"
-			},
-			{
-				"field":"createdOn"
-			}
-		]
-	},
-	"fillins":[],
-	"filters":[
-		{
-			"filterName":"我的报价单",
-			"config":{
-				"items":[
-					{
-						"op":"SFU",
-						"field":"owningUser",
-						"index":1
-					}
-				],
-				"entity":"Quotation"
-			}
-		}
-	],
-	"triggers":[],
-	"approvals":[
-		{
-			"name":"报价审批",
-			"flowDefinition":{
-				"nodes":[
-					{
-						"type":"start",
-						"nodeId":"ROOT"
-					},
-					{
-						"data":{
-							"selfSelecting":true,
-							"signMode":"OR",
-							"editableFields":[],
-							"users":[]
-						},
-						"type":"approver",
-						"nodeId":"NODE16025084678471"
-					},
-					{
-						"data":{
-							"ccAutoShare":true,
-							"selfSelecting":true,
-							"users":[]
-						},
-						"type":"cc",
-						"nodeId":"NODE16025084762301"
-					}
-				]
-			}
-		}
-	]
+  "entity": "Quotation",
+  "entityIcon": "collection-text",
+  "entityLabel": "报价单",
+  "comments": "报价单是企业在销售过程当中，向客户提供的产品报价清单，也为销售订单提供了一个基本的价格信息",
+  "nameField": "QuotationName",
+  "quickFields": "QuoteNumber,QuotationName",
+  "fields": [
+    {
+      "field": "ContactId",
+      "fieldLabel": "联系人",
+      "displayType": "REFERENCE",
+      "nullable": true,
+      "updatable": true,
+      "repeatable": true,
+      "queryable": true,
+      "refEntity": "Contact"
+    },
+    {
+      "field": "AccountId",
+      "fieldLabel": "相关客户",
+      "displayType": "REFERENCE",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true,
+      "queryable": true,
+      "refEntity": "Account"
+    },
+    {
+      "field": "Status",
+      "fieldLabel": "报价阶段",
+      "displayType": "PICKLIST",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true,
+      "queryable": true,
+      "items": [
+        ["草稿", true, 0],
+        ["谈判", false, 0],
+        ["已搁置", false, 0],
+        ["已确认", false, 0],
+        ["赢单关闭", false, 0],
+        ["丢单关闭", false, 0]
+      ]
+    },
+    {
+      "field": "QuotationName",
+      "fieldLabel": "主题",
+      "displayType": "TEXT",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true,
+      "queryable": true
+    },
+    {
+      "field": "ValidTill",
+      "fieldLabel": "报价有效期",
+      "displayType": "DATE",
+      "nullable": false,
+      "updatable": true,
+      "repeatable": true,
+      "queryable": true,
+      "defaultValue": "{NOW + 7Y}",
+      "extConfig": {
+        "dateFormat": "yyyy-MM-dd"
+      }
+    },
+    {
+      "field": "QuoteNumber",
+      "fieldLabel": "报价编号",
+      "displayType": "SERIES",
+      "nullable": false,
+      "updatable": false,
+      "repeatable": false,
+      "queryable": true,
+      "extConfig": {
+        "seriesZero": "Y",
+        "seriesFormat": "QUO-{YYYYMMDD}-{0000}"
+      }
+    }
+  ],
+  "layouts": {
+    "FORM": [
+      {
+        "field": "QuoteNumber",
+        "isFull": false
+      },
+      {
+        "field": "QuotationName",
+        "isFull": false
+      },
+      {
+        "field": "ValidTill",
+        "isFull": false
+      },
+      {
+        "field": "Status",
+        "isFull": false
+      },
+      {
+        "field": "AccountId",
+        "isFull": false
+      },
+      {
+        "field": "ContactId",
+        "isFull": false
+      },
+      {
+        "field": "approvalState",
+        "isFull": false
+      }
+    ],
+    "DATALIST": [
+      {
+        "field": "QuoteNumber"
+      },
+      {
+        "field": "QuotationName"
+      },
+      {
+        "field": "Status"
+      },
+      {
+        "field": "ValidTill"
+      },
+      {
+        "field": "ContactId"
+      },
+      {
+        "field": "AccountId"
+      },
+      {
+        "field": "approvalState"
+      },
+      {
+        "field": "createdOn"
+      }
+    ]
+  },
+  "fillins": [],
+  "filters": [
+    {
+      "filterName": "我的报价单",
+      "config": {
+        "items": [
+          {
+            "op": "SFU",
+            "field": "owningUser",
+            "index": 1
+          }
+        ],
+        "entity": "Quotation"
+      }
+    }
+  ],
+  "triggers": [],
+  "approvals": [
+    {
+      "name": "报价审批",
+      "flowDefinition": {
+        "nodes": [
+          {
+            "type": "start",
+            "nodeId": "ROOT"
+          },
+          {
+            "data": {
+              "selfSelecting": true,
+              "signMode": "OR",
+              "editableFields": [],
+              "users": []
+            },
+            "type": "approver",
+            "nodeId": "NODE16025084678471"
+          },
+          {
+            "data": {
+              "ccAutoShare": true,
+              "selfSelecting": true,
+              "users": []
+            },
+            "type": "cc",
+            "nodeId": "NODE16025084762301"
+          }
+        ]
+      }
+    }
+  ]
 }
