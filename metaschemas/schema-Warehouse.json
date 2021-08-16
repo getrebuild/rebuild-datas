@@ -1,0 +1,51 @@
+{
+	"entity": "Warehouse",
+	"entityIcon": "store-24",
+	"entityLabel": "仓库",
+	"comments": "仓库是以用于存放商品的地方",
+	"nameField": "WarehouseName",
+	"quickFields": "",
+	"fields": [
+		{
+			"field": "WarehouseName",
+			"fieldLabel": "仓库名称",
+			"displayType": "TEXT",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"extConfig": {
+				"advDesensitized": false,
+				"advPattern": null
+			}
+		}
+	],
+	"layouts": {
+		"FORM": [
+			{
+				"requiredOnCreate": true,
+				"requiredOnUpdate": true,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "WarehouseName",
+				"isFull": false
+			}
+		],
+		"DATALIST": [
+			{
+				"field": "WarehouseName"
+			},
+			{
+				"field": "createdBy"
+			},
+			{
+				"field": "createdOn"
+			}
+		]
+	},
+	"fillins": [],
+	"filters": [],
+	"triggers": [],
+	"approvals": [],
+	"transforms": []
+}

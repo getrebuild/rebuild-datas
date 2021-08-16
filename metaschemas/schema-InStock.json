@@ -1,0 +1,234 @@
+{
+	"entity": "InStock",
+	"entityIcon": "texture",
+	"entityLabel": "入库",
+	"comments": "入库是对仓库内商品入库数量的确认",
+	"nameField": "InStockNo",
+	"quickFields": "",
+	"fields": [
+		{
+			"field": "WarehouseId",
+			"fieldLabel": "入库仓库",
+			"displayType": "REFERENCE",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"refEntity": "Warehouse",
+			"extConfig": {
+				"advDesensitized": false,
+				"advPattern": null
+			}
+		},
+		{
+			"field": "InTime",
+			"fieldLabel": "入库时间",
+			"displayType": "DATE",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"extConfig": {
+				"advDesensitized": false,
+				"dateFormat": "yyyy-MM-dd",
+				"advPattern": null
+			}
+		},
+		{
+			"field": "InStockNo",
+			"fieldLabel": "入库编号",
+			"displayType": "SERIES",
+			"nullable": false,
+			"updatable": false,
+			"repeatable": false,
+			"queryable": true,
+			"extConfig": {
+				"advDesensitized": false,
+				"seriesZero": "N",
+				"advPattern": null,
+				"seriesFormat": "SRK-{YYYYMMDD}-{0000}"
+			}
+		}
+	],
+	"layouts": {
+		"FORM": [
+			{
+				"requiredOnCreate": true,
+				"requiredOnUpdate": true,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "InStockNo",
+				"isFull": true
+			},
+			{
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "WarehouseId",
+				"isFull": false
+			},
+			{
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "InTime",
+				"isFull": false
+			},
+			{
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "createdBy",
+				"isFull": false
+			},
+			{
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "createdOn",
+				"isFull": false
+			}
+		],
+		"DATALIST": [
+			{
+				"field": "InStockNo"
+			},
+			{
+				"field": "InTime"
+			},
+			{
+				"field": "WarehouseId"
+			},
+			{
+				"field": "createdOn"
+			},
+			{
+				"field": "createdBy"
+			}
+		]
+	},
+	"fillins": [],
+	"filters": [],
+	"triggers": [],
+	"approvals": [],
+	"transforms": [],
+	"detail": {
+		"entity": "InStockItem",
+		"entityIcon": "texture",
+		"entityLabel": "入库明细",
+		"comments": "入库是对仓库内商品入库数量的确认",
+		"nameField": "ProductId",
+		"quickFields": "",
+		"fields": [
+			{
+				"field": "ProductId",
+				"fieldLabel": "产品",
+				"displayType": "REFERENCE",
+				"nullable": true,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"refEntity": "Product",
+				"extConfig": {
+					"advDesensitized": false,
+					"advPattern": null
+				}
+			},
+			{
+				"field": "Quantity",
+				"fieldLabel": "数量",
+				"displayType": "NUMBER",
+				"nullable": true,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"extConfig": {
+					"calcFormula": null,
+					"advDesensitized": false,
+					"advPattern": null,
+					"notNegative": false
+				}
+			}
+		],
+		"layouts": {
+			"FORM": [
+				{
+					"requiredOnCreate": false,
+					"requiredOnUpdate": false,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "ProductId",
+					"isFull": false
+				},
+				{
+					"requiredOnCreate": false,
+					"requiredOnUpdate": false,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "Quantity",
+					"isFull": false
+				},
+				{
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "createdBy",
+					"isFull": false
+				},
+				{
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "createdOn",
+					"isFull": false
+				}
+			],
+			"DATALIST": [
+				{
+					"field": "ProductId"
+				},
+				{
+					"field": "Quantity"
+				},
+				{
+					"field": "createdOn"
+				},
+				{
+					"field": "createdBy"
+				}
+			]
+		},
+		"fillins": [],
+		"filters": [],
+		"triggers": [
+			{
+				"whenFilter": null,
+				"actionType": "GROUPAGGREGATION",
+				"actionContent": {
+					"targetEntity": "Stock",
+					"autoCreate": true,
+					"groupFields": [
+						{
+							"sourceField": "InStockId.WarehouseId",
+							"targetField": "WarehouseId"
+						},
+						{
+							"sourceField": "ProductId",
+							"targetField": "ProductId"
+						}
+					],
+					"items": [
+						{
+							"sourceField": "Quantity",
+							"targetField": "InTotalQuantity",
+							"sourceFormula": null,
+							"calcMode": "SUM"
+						}
+					]
+				},
+				"name": "入库聚合",
+				"priority": 10,
+				"when": 7,
+				"whenTimer": "D:1"
+			}
+		]
+	}
+}

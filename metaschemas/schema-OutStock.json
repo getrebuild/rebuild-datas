@@ -1,0 +1,220 @@
+{
+	"entity": "OutStock",
+	"entityIcon": "texture",
+	"entityLabel": "出库",
+	"comments": "出库是对仓库内商品出库数量的确认",
+	"nameField": "OutStockNo",
+	"quickFields": "",
+	"fields": [
+		{
+			"field": "OutTime",
+			"fieldLabel": "出库时间",
+			"displayType": "DATE",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"extConfig": {
+				"advDesensitized": false,
+				"dateFormat": "yyyy-MM-dd",
+				"advPattern": null
+			}
+		},
+		{
+			"field": "WarehouseId",
+			"fieldLabel": "仓库",
+			"displayType": "REFERENCE",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"refEntity": "Warehouse",
+			"extConfig": {
+				"advDesensitized": false,
+				"advPattern": null
+			}
+		},
+		{
+			"field": "OutStockNo",
+			"fieldLabel": "出库编号",
+			"displayType": "SERIES",
+			"nullable": false,
+			"updatable": false,
+			"repeatable": false,
+			"queryable": true,
+			"extConfig": {
+				"advDesensitized": false,
+				"seriesZero": "N",
+				"advPattern": null,
+				"seriesFormat": "SCK-{YYYYMMDD}-{0000}"
+			}
+		}
+	],
+	"layouts": {
+		"FORM": [
+			{
+				"requiredOnCreate": true,
+				"requiredOnUpdate": true,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "OutStockNo",
+				"isFull": true
+			},
+			{
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "OutTime",
+				"isFull": false
+			},
+			{
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "WarehouseId",
+				"isFull": false
+			},
+			{
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "createdBy",
+				"isFull": false
+			},
+			{
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "createdOn",
+				"isFull": false
+			}
+		],
+		"DATALIST": [
+			{
+				"field": "OutStockNo"
+			},
+			{
+				"field": "OutTime"
+			},
+			{
+				"field": "WarehouseId"
+			},
+			{
+				"field": "createdBy"
+			},
+			{
+				"field": "createdOn"
+			}
+		]
+	},
+	"fillins": [],
+	"filters": [],
+	"triggers": [],
+	"approvals": [],
+	"transforms": [],
+	"detail": {
+		"entity": "OutStockItem",
+		"entityIcon": "texture",
+		"entityLabel": "出库明细",
+		"comments": "出库是对仓库内商品出库数量的确认",
+		"nameField": "ProductId",
+		"quickFields": "",
+		"fields": [
+			{
+				"field": "ProductId",
+				"fieldLabel": "产品",
+				"displayType": "REFERENCE",
+				"nullable": true,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"refEntity": "Product",
+				"extConfig": {
+					"advDesensitized": false,
+					"advPattern": null
+				}
+			},
+			{
+				"field": "Quantity",
+				"fieldLabel": "数量",
+				"displayType": "NUMBER",
+				"nullable": true,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"extConfig": {
+					"calcFormula": null,
+					"advDesensitized": false,
+					"advPattern": null,
+					"notNegative": false
+				}
+			}
+		],
+		"layouts": {
+			"FORM": [
+				{
+					"requiredOnCreate": false,
+					"requiredOnUpdate": false,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "ProductId",
+					"isFull": false
+				},
+				{
+					"requiredOnCreate": false,
+					"requiredOnUpdate": false,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "Quantity",
+					"isFull": false
+				},
+				{
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "createdBy",
+					"isFull": false
+				},
+				{
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "createdOn",
+					"isFull": false
+				}
+			]
+		},
+		"fillins": [],
+		"filters": [],
+		"triggers": [
+			{
+				"whenFilter": null,
+				"actionType": "GROUPAGGREGATION",
+				"actionContent": {
+					"targetEntity": "Stock",
+					"autoCreate": true,
+					"groupFields": [
+						{
+							"sourceField": "OutStockId.WarehouseId",
+							"targetField": "WarehouseId"
+						},
+						{
+							"sourceField": "ProductId",
+							"targetField": "ProductId"
+						}
+					],
+					"items": [
+						{
+							"sourceField": "Quantity",
+							"targetField": "OutTotalQuantity",
+							"sourceFormula": null,
+							"calcMode": "SUM"
+						}
+					]
+				},
+				"name": "出库聚合",
+				"priority": 10,
+				"when": 7,
+				"whenTimer": "D:1"
+			}
+		]
+	}
+}

@@ -1,0 +1,149 @@
+{
+	"entity": "Stock",
+	"entityIcon": "texture",
+	"entityLabel": "库存",
+	"comments": "库存是仓库中实际储存的货物",
+	"nameField": "ProductId",
+	"quickFields": "WarehouseId,ProductId",
+	"fields": [
+		{
+			"field": "InTotalQuantity",
+			"fieldLabel": "总入库量",
+			"displayType": "NUMBER",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"extConfig": {
+				"calcFormula": null,
+				"advDesensitized": false,
+				"advPattern": null,
+				"notNegative": false
+			}
+		},
+		{
+			"field": "OutTotalQuantity",
+			"fieldLabel": "总出库量",
+			"displayType": "NUMBER",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"extConfig": {
+				"calcFormula": null,
+				"advDesensitized": false,
+				"advPattern": null,
+				"notNegative": false
+			}
+		},
+		{
+			"field": "WarehouseId",
+			"fieldLabel": "仓库",
+			"displayType": "REFERENCE",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"refEntity": "Warehouse",
+			"extConfig": {
+				"advDesensitized": false,
+				"advPattern": null
+			}
+		},
+		{
+			"field": "ProductId",
+			"fieldLabel": "产品",
+			"displayType": "REFERENCE",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"refEntity": "Product",
+			"extConfig": {
+				"advDesensitized": false,
+				"advPattern": null
+			}
+		},
+		{
+			"field": "CurrentQuantity",
+			"fieldLabel": "当前库存量",
+			"displayType": "NUMBER",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"extConfig": {
+				"calcFormula": null,
+				"advDesensitized": false,
+				"advPattern": null,
+				"notNegative": false
+			}
+		}
+	],
+	"layouts": {
+		"DATALIST": [
+			{
+				"field": "WarehouseId"
+			},
+			{
+				"field": "ProductId"
+			},
+			{
+				"field": "CurrentQuantity"
+			},
+			{
+				"field": "InTotalQuantity"
+			},
+			{
+				"field": "OutTotalQuantity"
+			}
+		]
+	},
+	"fillins": [],
+	"filters": [],
+	"triggers": [
+		{
+			"whenFilter": null,
+			"actionType": "FIELDWRITEBACK",
+			"actionContent": {
+				"targetEntity": "$PRIMARY$.Stock",
+				"items": [
+					{
+						"sourceField": "{InTotalQuantity}-{OutTotalQuantity}",
+						"targetField": "CurrentQuantity",
+						"updateMode": "FORMULA"
+					}
+				],
+				"readonlyFields": false
+			},
+			"name": "当前库存",
+			"priority": 9,
+			"when": 5,
+			"whenTimer": "D:1"
+		},
+		{
+			"whenFilter": null,
+			"actionType": "DATAVALIDATE",
+			"actionContent": {
+				"tipContent": "库存不足",
+				"validateFilter": {
+					"items": [
+						{
+							"op": "GE",
+							"field": "CurrentQuantity",
+							"index": 1,
+							"value": "0"
+						}
+					],
+					"entity": "Stock"
+				}
+			},
+			"name": "0库存校验",
+			"priority": 1,
+			"when": 5,
+			"whenTimer": "D:1"
+		}
+	],
+	"approvals": [],
+	"transforms": []
+}

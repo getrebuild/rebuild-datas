@@ -7,10 +7,11 @@
       "Product",
       "SalesOrder"
     ],
-    "HRM 人力资源管理": [
-      "Staff"
-    ],
-    "PSI 进销存": [
+    "WMS 库存管理": [
+      "Product",
+      "Warehouse",
+      "InStock",
+      "OutStock",
       "Stock"
     ]
   },
@@ -55,23 +56,45 @@
       "refs": [
         "Account",
         "Contact",
-        "Product",
-        "Quotation"
+        "Product"
       ]
     },
     {
-      "name": "员工档案",
-      "desc": "员工档案是人力资本管理的基础。企业需要把员工信息分门别类以结构化的形式记录、维护和分析、以供决策之用",
-      "key": "Staff",
-      "file": "schema-Staff.json",
+      "name": "仓库",
+      "desc": "",
+      "key": "Warehouse",
+      "file": "schema-Warehouse.json",
       "refs": []
+    },
+    {
+      "name": "入库",
+      "desc": "",
+      "key": "InStock",
+      "file": "schema-InStock.json",
+      "refs": [
+        "Warehouse",
+        "Product"
+      ]
+    },
+    {
+      "name": "出库",
+      "desc": "",
+      "key": "OutStock",
+      "file": "schema-OutStock.json",
+      "refs": [
+        "Warehouse",
+        "Product"
+      ]
     },
     {
       "name": "库存",
       "desc": "",
       "key": "Stock",
       "file": "schema-Stock.json",
-      "refs": []
+      "refs": [
+        "Warehouse",
+        "Product"
+      ]
     }
   ]
 }
