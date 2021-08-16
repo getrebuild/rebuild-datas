@@ -15,8 +15,16 @@
       "repeatable": true,
       "queryable": true,
       "items": [
-        ["套", true, 0],
-        ["支", false, 0]
+        [
+          "套",
+          true,
+          0
+        ],
+        [
+          "支",
+          false,
+          0
+        ]
       ]
     },
     {

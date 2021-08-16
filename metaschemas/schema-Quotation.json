@@ -35,12 +35,36 @@
       "repeatable": true,
       "queryable": true,
       "items": [
-        ["草稿", true, 0],
-        ["谈判", false, 0],
-        ["已搁置", false, 0],
-        ["已确认", false, 0],
-        ["赢单关闭", false, 0],
-        ["丢单关闭", false, 0]
+        [
+          "草稿",
+          true,
+          0
+        ],
+        [
+          "谈判",
+          false,
+          0
+        ],
+        [
+          "已搁置",
+          false,
+          0
+        ],
+        [
+          "已确认",
+          false,
+          0
+        ],
+        [
+          "赢单关闭",
+          false,
+          0
+        ],
+        [
+          "丢单关闭",
+          false,
+          0
+        ]
       ]
     },
     {

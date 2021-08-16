@@ -63,12 +63,36 @@
       "repeatable": true,
       "queryable": true,
       "items": [
-        ["官网", false, 0],
-        ["展会", false, 0],
-        ["名片", false, 0],
-        ["会议营销", false, 0],
-        ["百度", false, 0],
-        ["其他", true, 0]
+        [
+          "官网",
+          false,
+          0
+        ],
+        [
+          "展会",
+          false,
+          0
+        ],
+        [
+          "名片",
+          false,
+          0
+        ],
+        [
+          "会议营销",
+          false,
+          0
+        ],
+        [
+          "百度",
+          false,
+          0
+        ],
+        [
+          "其他",
+          true,
+          0
+        ]
       ]
     },
     {
@@ -145,5 +169,21 @@
   "fillins": [],
   "filters": [],
   "triggers": [],
-  "approvals": []
+  "approvals": [],
+  "transforms": [
+    {
+      "targetEntity": "Account",
+      "name": "线索转客户",
+      "config": {
+        "fillbackField": null,
+        "fieldsMapping": {
+          "Industry": "Industry",
+          "Area": "Area",
+          "Telephone": "Telephone",
+          "SourceLead": "LeadId",
+          "AccountName": "ContactName"
+        }
+      }
+    }
+  ]
 }
