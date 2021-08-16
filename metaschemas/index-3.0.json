@@ -61,14 +61,14 @@
     },
     {
       "name": "仓库",
-      "desc": "",
+      "desc": "仓库是以用于存放商品的地方",
       "key": "Warehouse",
       "file": "schema-Warehouse.json",
       "refs": []
     },
     {
       "name": "入库",
-      "desc": "",
+      "desc": "入库是对仓库内商品入库数量的确认",
       "key": "InStock",
       "file": "schema-InStock.json",
       "refs": [
@@ -78,7 +78,7 @@
     },
     {
       "name": "出库",
-      "desc": "",
+      "desc": "出库是对仓库内商品出库数量的确认",
       "key": "OutStock",
       "file": "schema-OutStock.json",
       "refs": [
@@ -88,7 +88,7 @@
     },
     {
       "name": "库存",
-      "desc": "",
+      "desc": "库存是仓库中实际储存的货物",
       "key": "Stock",
       "file": "schema-Stock.json",
       "refs": [
