@@ -8,7 +8,6 @@
       "SalesOrder"
     ],
     "WMS 库存管理": [
-      "Product",
       "Warehouse",
       "InStock",
       "OutStock",
