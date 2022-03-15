@@ -10,28 +10,26 @@
 			"field": "OutTime",
 			"fieldLabel": "出库时间",
 			"displayType": "DATE",
-			"nullable": true,
+			"nullable": false,
 			"updatable": true,
 			"repeatable": true,
 			"queryable": true,
+			"defaultValue": "{NOW}",
 			"extConfig": {
-				"advDesensitized": false,
-				"dateFormat": "yyyy-MM-dd",
-				"advPattern": null
+				"dateFormat": "yyyy-MM-dd"
 			}
 		},
 		{
 			"field": "WarehouseId",
 			"fieldLabel": "仓库",
 			"displayType": "REFERENCE",
-			"nullable": true,
+			"nullable": false,
 			"updatable": true,
 			"repeatable": true,
 			"queryable": true,
 			"refEntity": "Warehouse",
 			"extConfig": {
-				"advDesensitized": false,
-				"advPattern": null
+				"referenceCascadingField": null
 			}
 		},
 		{
@@ -50,43 +48,44 @@
 			}
 		}
 	],
+	"fillins": [],
 	"layouts": {
 		"FORM": [
 			{
+				"colspan": 4,
 				"requiredOnCreate": true,
 				"requiredOnUpdate": true,
 				"displayOnUpdate": true,
 				"displayOnCreate": true,
-				"field": "OutStockNo",
-				"isFull": true
+				"field": "OutStockNo"
 			},
 			{
-				"requiredOnCreate": false,
-				"requiredOnUpdate": false,
+				"colspan": 2,
+				"requiredOnCreate": true,
+				"requiredOnUpdate": true,
 				"displayOnUpdate": true,
 				"displayOnCreate": true,
-				"field": "OutTime",
-				"isFull": false
+				"field": "WarehouseId"
 			},
 			{
-				"requiredOnCreate": false,
-				"requiredOnUpdate": false,
+				"colspan": 2,
+				"requiredOnCreate": true,
+				"requiredOnUpdate": true,
 				"displayOnUpdate": true,
 				"displayOnCreate": true,
-				"field": "WarehouseId",
-				"isFull": false
+				"field": "OutTime"
 			},
 			{
+				"colspan": 2,
 				"displayOnUpdate": true,
 				"displayOnCreate": true,
-				"field": "createdBy",
-				"isFull": false
+				"field": "createdBy"
 			},
 			{
+				"colspan": 2,
 				"displayOnUpdate": true,
 				"displayOnCreate": true,
-				"field": "createdOn",
-				"isFull": false
+				"field": "createdOn"
 			}
 		],
 		"DATALIST": [
@@ -107,7 +106,6 @@
 			}
 		]
 	},
-	"fillins": [],
 	"filters": [],
 	"triggers": [],
 	"approvals": [],
@@ -124,32 +122,31 @@
 				"field": "ProductId",
 				"fieldLabel": "产品",
 				"displayType": "REFERENCE",
-				"nullable": true,
+				"nullable": false,
 				"updatable": true,
 				"repeatable": true,
 				"queryable": true,
 				"refEntity": "Product",
 				"extConfig": {
-					"advDesensitized": false,
-					"advPattern": null
+					"referenceCascadingField": null
 				}
 			},
 			{
 				"field": "Quantity",
 				"fieldLabel": "数量",
 				"displayType": "NUMBER",
-				"nullable": true,
+				"nullable": false,
 				"updatable": true,
 				"repeatable": true,
 				"queryable": true,
+				"defaultValue": "1",
 				"extConfig": {
 					"calcFormula": null,
-					"advDesensitized": false,
-					"advPattern": null,
 					"notNegative": false
 				}
 			}
 		],
+		"fillins": [],
 		"layouts": {
 			"FORM": [
 				{
@@ -180,9 +177,25 @@
 					"field": "createdOn",
 					"isFull": false
 				}
+			],
+			"DATALIST": [
+				{
+					"field": "ProductId"
+				},
+				{
+					"field": "Quantity"
+				},
+				{
+					"field": "OutStockId"
+				},
+				{
+					"field": "createdBy"
+				},
+				{
+					"field": "createdOn"
+				}
 			]
 		},
-		"fillins": [],
 		"filters": [],
 		"triggers": [
 			{

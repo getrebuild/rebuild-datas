@@ -20,6 +20,7 @@
 			}
 		}
 	],
+	"fillins": [],
 	"layouts": {
 		"FORM": [
 			{
@@ -43,7 +44,6 @@
 			}
 		]
 	},
-	"fillins": [],
 	"filters": [],
 	"triggers": [],
 	"approvals": [],

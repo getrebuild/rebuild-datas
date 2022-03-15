@@ -10,28 +10,26 @@
 			"field": "WarehouseId",
 			"fieldLabel": "入库仓库",
 			"displayType": "REFERENCE",
-			"nullable": true,
+			"nullable": false,
 			"updatable": true,
 			"repeatable": true,
 			"queryable": true,
 			"refEntity": "Warehouse",
 			"extConfig": {
-				"advDesensitized": false,
-				"advPattern": null
+				"referenceCascadingField": null
 			}
 		},
 		{
 			"field": "InTime",
 			"fieldLabel": "入库时间",
 			"displayType": "DATE",
-			"nullable": true,
+			"nullable": false,
 			"updatable": true,
 			"repeatable": true,
 			"queryable": true,
+			"defaultValue": "{NOW}",
 			"extConfig": {
-				"advDesensitized": false,
-				"dateFormat": "yyyy-MM-dd",
-				"advPattern": null
+				"dateFormat": "yyyy-MM-dd"
 			}
 		},
 		{
@@ -50,43 +48,28 @@
 			}
 		}
 	],
+	"fillins": [],
 	"layouts": {
 		"FORM": [
 			{
-				"requiredOnCreate": true,
-				"requiredOnUpdate": true,
-				"displayOnUpdate": true,
-				"displayOnCreate": true,
-				"field": "InStockNo",
-				"isFull": true
+				"colspan": 4,
+				"field": "InStockNo"
 			},
 			{
-				"requiredOnCreate": false,
-				"requiredOnUpdate": false,
-				"displayOnUpdate": true,
-				"displayOnCreate": true,
-				"field": "WarehouseId",
-				"isFull": false
+				"colspan": 2,
+				"field": "WarehouseId"
 			},
 			{
-				"requiredOnCreate": false,
-				"requiredOnUpdate": false,
-				"displayOnUpdate": true,
-				"displayOnCreate": true,
-				"field": "InTime",
-				"isFull": false
+				"colspan": 2,
+				"field": "InTime"
 			},
 			{
-				"displayOnUpdate": true,
-				"displayOnCreate": true,
-				"field": "createdBy",
-				"isFull": false
+				"colspan": 2,
+				"field": "createdBy"
 			},
 			{
-				"displayOnUpdate": true,
-				"displayOnCreate": true,
-				"field": "createdOn",
-				"isFull": false
+				"colspan": 2,
+				"field": "createdOn"
 			}
 		],
 		"DATALIST": [
@@ -107,7 +90,6 @@
 			}
 		]
 	},
-	"fillins": [],
 	"filters": [],
 	"triggers": [],
 	"approvals": [],
@@ -124,61 +106,48 @@
 				"field": "ProductId",
 				"fieldLabel": "产品",
 				"displayType": "REFERENCE",
-				"nullable": true,
+				"nullable": false,
 				"updatable": true,
 				"repeatable": true,
 				"queryable": true,
 				"refEntity": "Product",
 				"extConfig": {
-					"advDesensitized": false,
-					"advPattern": null
+					"referenceCascadingField": null
 				}
 			},
 			{
 				"field": "Quantity",
 				"fieldLabel": "数量",
 				"displayType": "NUMBER",
-				"nullable": true,
+				"nullable": false,
 				"updatable": true,
 				"repeatable": true,
 				"queryable": true,
+				"defaultValue": "1",
 				"extConfig": {
 					"calcFormula": null,
-					"advDesensitized": false,
-					"advPattern": null,
 					"notNegative": false
 				}
 			}
 		],
+		"fillins": [],
 		"layouts": {
 			"FORM": [
 				{
-					"requiredOnCreate": false,
-					"requiredOnUpdate": false,
-					"displayOnUpdate": true,
-					"displayOnCreate": true,
-					"field": "ProductId",
-					"isFull": false
+					"colspan": 2,
+					"field": "ProductId"
 				},
 				{
-					"requiredOnCreate": false,
-					"requiredOnUpdate": false,
-					"displayOnUpdate": true,
-					"displayOnCreate": true,
-					"field": "Quantity",
-					"isFull": false
+					"colspan": 2,
+					"field": "Quantity"
 				},
 				{
-					"displayOnUpdate": true,
-					"displayOnCreate": true,
-					"field": "createdBy",
-					"isFull": false
+					"colspan": 2,
+					"field": "createdBy"
 				},
 				{
-					"displayOnUpdate": true,
-					"displayOnCreate": true,
-					"field": "createdOn",
-					"isFull": false
+					"colspan": 2,
+					"field": "createdOn"
 				}
 			],
 			"DATALIST": [
@@ -189,6 +158,9 @@
 					"field": "Quantity"
 				},
 				{
+					"field": "InStockId"
+				},
+				{
 					"field": "createdOn"
 				},
 				{
@@ -196,7 +168,6 @@
 				}
 			]
 		},
-		"fillins": [],
 		"filters": [],
 		"triggers": [
 			{
