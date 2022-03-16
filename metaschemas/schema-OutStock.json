@@ -1,6 +1,6 @@
 {
 	"entity": "OutStock",
-	"entityIcon": "texture",
+	"entityIcon": "assignment-return",
 	"entityLabel": "出库",
 	"comments": "出库是对仓库内商品出库数量的确认",
 	"nameField": "OutStockNo",
@@ -112,7 +112,7 @@
 	"transforms": [],
 	"detail": {
 		"entity": "OutStockItem",
-		"entityIcon": "texture",
+		"entityIcon": "assignment",
 		"entityLabel": "出库明细",
 		"comments": "出库是对仓库内商品出库数量的确认",
 		"nameField": "ProductId",

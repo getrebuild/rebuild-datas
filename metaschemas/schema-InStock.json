@@ -1,6 +1,6 @@
 {
 	"entity": "InStock",
-	"entityIcon": "texture",
+	"entityIcon": "assignment-returned",
 	"entityLabel": "入库",
 	"comments": "入库是对仓库内商品入库数量的确认",
 	"nameField": "InStockNo",
@@ -96,7 +96,7 @@
 	"transforms": [],
 	"detail": {
 		"entity": "InStockItem",
-		"entityIcon": "texture",
+		"entityIcon": "assignment",
 		"entityLabel": "入库明细",
 		"comments": "入库是对仓库内商品入库数量的确认",
 		"nameField": "ProductId",

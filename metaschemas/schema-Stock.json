@@ -1,6 +1,6 @@
 {
 	"entity": "Stock",
-	"entityIcon": "texture",
+	"entityIcon": "assignment-check",
 	"entityLabel": "库存",
 	"comments": "库存是仓库中实际储存的货物",
 	"nameField": "ProductId",
@@ -80,7 +80,30 @@
 			}
 		}
 	],
+	"fillins": [],
 	"layouts": {
+		"FORM": [
+			{
+				"colspan": 2,
+				"field": "ProductId"
+			},
+			{
+				"colspan": 2,
+				"field": "WarehouseId"
+			},
+			{
+				"colspan": 4,
+				"field": "CurrentQuantity"
+			},
+			{
+				"colspan": 2,
+				"field": "OutTotalQuantity"
+			},
+			{
+				"colspan": 2,
+				"field": "InTotalQuantity"
+			}
+		],
 		"DATALIST": [
 			{
 				"field": "WarehouseId"
@@ -99,7 +122,6 @@
 			}
 		]
 	},
-	"fillins": [],
 	"filters": [],
 	"triggers": [
 		{
