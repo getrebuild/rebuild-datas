@@ -1,0 +1,331 @@
+{
+	"entity": "OutStock",
+	"entityIcon": "assignment-return",
+	"entityLabel": "出库",
+	"comments": "出库是对仓库内商品出库数量的确认",
+	"nameField": "OutStockNo",
+	"quickFields": "",
+	"fields": [
+		{
+			"field": "Type",
+			"fieldLabel": "出库类型",
+			"displayType": "PICKLIST",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"items": [
+				[
+					"正常出库",
+					true,
+					0,
+					"",
+					"012-01826807cb913a17"
+				],
+				[
+					"盘亏出库",
+					false,
+					0,
+					"",
+					"012-01826807cb923a18"
+				],
+				[
+					"调拨出库",
+					false,
+					0,
+					"",
+					"012-01826967ed0b0cd8"
+				]
+			]
+		},
+		{
+			"field": "OutTime",
+			"fieldLabel": "出库时间",
+			"displayType": "DATE",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"defaultValue": "{NOW}",
+			"extConfig": {
+				"dateFormat": "yyyy-MM-dd"
+			}
+		},
+		{
+			"field": "WarehouseId",
+			"fieldLabel": "出库仓库",
+			"displayType": "REFERENCE",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"refEntity": "Warehouse",
+			"extConfig": {
+				"referenceCascadingField": null
+			}
+		},
+		{
+			"field": "OutStockNo",
+			"fieldLabel": "出库编号",
+			"displayType": "SERIES",
+			"nullable": false,
+			"updatable": false,
+			"repeatable": false,
+			"queryable": true,
+			"extConfig": {
+				"advDesensitized": false,
+				"seriesZero": "N",
+				"advPattern": null,
+				"seriesFormat": "SCK-{YYYYMMDD}-{0000}"
+			}
+		}
+	],
+	"fillins": [],
+	"layouts": {
+		"FORM": [
+			{
+				"colspan": 2,
+				"field": "WarehouseId"
+			},
+			{
+				"colspan": 2,
+				"field": "Type"
+			},
+			{
+				"colspan": 2,
+				"field": "OutTime"
+			},
+			{
+				"colspan": 2,
+				"field": "OutStockNo"
+			},
+			{
+				"colspan": 4,
+				"field": "$DIVIDER$",
+				"label": ""
+			},
+			{
+				"colspan": 2,
+				"field": "createdOn"
+			},
+			{
+				"colspan": 2,
+				"field": "createdBy"
+			}
+		],
+		"DATALIST": [
+			{
+				"field": "OutStockNo"
+			},
+			{
+				"field": "OutTime"
+			},
+			{
+				"field": "WarehouseId"
+			},
+			{
+				"field": "Type"
+			},
+			{
+				"field": "approvalState"
+			},
+			{
+				"field": "createdOn"
+			},
+			{
+				"field": "createdBy"
+			}
+		]
+	},
+	"filters": [],
+	"triggers": [
+		{
+			"whenFilter": {
+				"items": [
+					{
+						"op": "IN",
+						"field": "Type",
+						"index": 1,
+						"value": "012-01826807cb923a18|012-01826967ed0b0cd8"
+					}
+				],
+				"entity": "OutStock"
+			},
+			"actionType": "AUTOAPPROVAL",
+			"actionContent": {
+				"submitMode": false,
+				"useApproval": null
+			},
+			"name": "盘点/调拨自动出库审批",
+			"priority": 19,
+			"when": 5,
+			"whenTimer": "D:1:0:23"
+		}
+	],
+	"approvals": [
+		{
+			"name": "出库审批",
+			"flowDefinition": {
+				"nodes": [
+					{
+						"data": {
+							"filter": null,
+							"users": [
+								"ALL"
+							]
+						},
+						"type": "start",
+						"nodeId": "ROOT"
+					},
+					{
+						"data": {
+							"selfSelecting": true,
+							"signMode": "OR",
+							"editableFields": [],
+							"users": []
+						},
+						"type": "approver",
+						"nodeId": "NODE10331062"
+					}
+				]
+			}
+		}
+	],
+	"transforms": [],
+	"detail": {
+		"entity": "OutStockItem",
+		"entityIcon": "assignment",
+		"entityLabel": "出库明细",
+		"comments": "出库是对仓库内商品出库数量的确认",
+		"nameField": "ProductId",
+		"quickFields": "",
+		"fields": [
+			{
+				"field": "ProductId",
+				"fieldLabel": "产品",
+				"displayType": "REFERENCE",
+				"nullable": false,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"refEntity": "Product",
+				"extConfig": {
+					"referenceCascadingField": null
+				}
+			},
+			{
+				"field": "Quantity",
+				"fieldLabel": "数量",
+				"displayType": "NUMBER",
+				"nullable": false,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"defaultValue": "1",
+				"extConfig": {
+					"calcFormula": null,
+					"advDesensitized": false,
+					"notNegative": true
+				}
+			}
+		],
+		"fillins": [],
+		"layouts": {
+			"FORM": [
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "ProductId"
+				},
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "Quantity"
+				},
+				{
+					"colspan": 4,
+					"field": "$DIVIDER$",
+					"label": ""
+				},
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "createdOn"
+				},
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "createdBy"
+				}
+			],
+			"DATALIST": [
+				{
+					"field": "ProductId"
+				},
+				{
+					"field": "Quantity"
+				},
+				{
+					"field": "OutStockId"
+				},
+				{
+					"field": "OutStockId.approvalState"
+				},
+				{
+					"field": "createdOn"
+				},
+				{
+					"field": "createdBy"
+				}
+			]
+		},
+		"filters": [],
+		"triggers": [
+			{
+				"whenFilter": null,
+				"actionType": "GROUPAGGREGATION",
+				"actionContent": {
+					"dataFilter": {
+						"items": [
+							{
+								"op": "IN",
+								"field": "OutStockId.approvalState",
+								"index": 1,
+								"value": "10"
+							}
+						],
+						"entity": "OutStockItem"
+					},
+					"targetEntity": "Stock",
+					"autoCreate": true,
+					"groupFields": [
+						{
+							"sourceField": "OutStockId.WarehouseId",
+							"targetField": "WarehouseId"
+						},
+						{
+							"sourceField": "ProductId",
+							"targetField": "ProductId"
+						}
+					],
+					"items": [
+						{
+							"sourceField": "Quantity",
+							"targetField": "OutTotalQuantity",
+							"sourceFormula": null,
+							"calcMode": "SUM"
+						}
+					]
+				},
+				"name": "出库聚合",
+				"priority": 10,
+				"when": 384,
+				"whenTimer": "D:1:0:23"
+			}
+		]
+	}
+}

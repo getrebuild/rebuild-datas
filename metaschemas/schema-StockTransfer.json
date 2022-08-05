@@ -1,0 +1,332 @@
+{
+	"entity": "StockTransfer",
+	"entityIcon": "repeat",
+	"entityLabel": "调拨",
+	"comments": "调拨就是两个仓库之间的货物相互调配",
+	"nameField": "TransferNo",
+	"quickFields": "",
+	"fields": [
+		{
+			"field": "TransferNo",
+			"fieldLabel": "调拨编号",
+			"displayType": "SERIES",
+			"nullable": false,
+			"updatable": false,
+			"repeatable": false,
+			"queryable": true,
+			"extConfig": {
+				"seriesZero": "N",
+				"seriesFormat": "SDB-{YYYYMMDD}-{0000}"
+			}
+		},
+		{
+			"field": "StockTransferName",
+			"fieldLabel": "主题",
+			"displayType": "TEXT",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"extConfig": {
+				"textScanCode": false,
+				"advDesensitized": false,
+				"advPattern": null
+			}
+		},
+		{
+			"field": "TransferTo",
+			"fieldLabel": "调入仓库",
+			"displayType": "REFERENCE",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"refEntity": "Warehouse",
+			"extConfig": {
+				"referenceCascadingField": null
+			}
+		},
+		{
+			"field": "TransferDate",
+			"fieldLabel": "调拨日期",
+			"displayType": "DATE",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"defaultValue": "{NOW}",
+			"extConfig": {
+				"dateFormat": "yyyy-MM-dd"
+			}
+		}
+	],
+	"fillins": [],
+	"layouts": {
+		"FORM": [
+			{
+				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "TransferTo"
+			},
+			{
+				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "TransferDate"
+			},
+			{
+				"colspan": 2,
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "StockTransferName"
+			},
+			{
+				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "TransferNo"
+			},
+			{
+				"colspan": 4,
+				"field": "$DIVIDER$",
+				"label": ""
+			},
+			{
+				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "createdOn"
+			},
+			{
+				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "createdBy"
+			}
+		],
+		"DATALIST": [
+			{
+				"field": "TransferNo"
+			},
+			{
+				"field": "StockTransferName"
+			},
+			{
+				"field": "TransferTo"
+			},
+			{
+				"field": "TransferDate"
+			},
+			{
+				"field": "approvalState"
+			},
+			{
+				"field": "createdOn"
+			},
+			{
+				"field": "createdBy"
+			}
+		]
+	},
+	"filters": [],
+	"triggers": [],
+	"transforms": [],
+	"approvals": [
+		{
+			"name": "调拨审批",
+			"flowDefinition": {
+				"nodes": [
+					{
+						"data": {
+							"filter": null,
+							"users": [
+								"ALL"
+							]
+						},
+						"type": "start",
+						"nodeId": "ROOT"
+					},
+					{
+						"data": {
+							"selfSelecting": true,
+							"signMode": "OR",
+							"editableFields": [],
+							"users": []
+						},
+						"type": "approver",
+						"nodeId": "NODE52633060"
+					}
+				]
+			}
+		}
+	],
+	"detail": {
+		"entity": "StockTransferItem",
+		"entityIcon": "assignment",
+		"entityLabel": "调拨明细",
+		"nameField": "ProductId",
+		"quickFields": "",
+		"fields": [
+			{
+				"field": "ProductId",
+				"fieldLabel": "产品",
+				"displayType": "REFERENCE",
+				"nullable": false,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"refEntity": "Product",
+				"extConfig": {
+					"referenceCascadingField": null
+				}
+			},
+			{
+				"field": "TransferFrom",
+				"fieldLabel": "调出仓库",
+				"displayType": "REFERENCE",
+				"nullable": false,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"refEntity": "Warehouse",
+				"extConfig": {
+					"referenceCascadingField": null
+				}
+			},
+			{
+				"field": "Number",
+				"fieldLabel": "数量",
+				"displayType": "NUMBER",
+				"nullable": false,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"extConfig": {
+					"calcFormula": null,
+					"advDesensitized": false,
+					"notNegative": true
+				}
+			}
+		],
+		"fillins": [],
+		"layouts": {
+			"FORM": [
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "TransferFrom"
+				},
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "ProductId"
+				},
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "Number"
+				}
+			],
+			"DATALIST": [
+				{
+					"field": "TransferFrom"
+				},
+				{
+					"field": "ProductId"
+				},
+				{
+					"field": "Number"
+				},
+				{
+					"field": "StockTransferId"
+				},
+				{
+					"field": "StockTransferId.approvalState"
+				},
+				{
+					"field": "createdOn"
+				},
+				{
+					"field": "createdBy"
+				}
+			]
+		},
+		"filters": [],
+		"triggers": [
+			{
+				"whenFilter": null,
+				"actionType": "AUTOTRANSFORM",
+				"actionContent": {
+					"useTransform": "037-01826966df170cd6",
+					"transformOnce": false
+				},
+				"name": "调拨出库",
+				"priority": 20,
+				"when": 128,
+				"whenTimer": "D:1:0:23"
+			},
+			{
+				"whenFilter": null,
+				"actionType": "AUTOTRANSFORM",
+				"actionContent": {
+					"useTransform": "037-0182696893bf0cd9",
+					"transformOnce": false
+				},
+				"name": "调拨入库",
+				"priority": 20,
+				"when": 128,
+				"whenTimer": "D:1:0:23"
+			}
+		],
+		"transforms": [
+			{
+				"name": "调出仓出库",
+				"_id": "037-01826966df170cd6",
+				"targetEntity": "OutStock",
+				"config": {
+					"fillbackField": null,
+					"transformMode": 1,
+					"fieldsMapping": {
+						"Type": [
+							"012-01826967ed0b0cd8",
+							"VFIXED"
+						],
+						"OutTime": "StockTransferId.TransferDate",
+						"WarehouseId": "TransferFrom"
+					},
+					"fieldsMappingDetail": {
+						"Quantity": "Number",
+						"ProductId": "ProductId"
+					}
+				}
+			},
+			{
+				"name": "调入仓入库",
+				"_id": "037-0182696893bf0cd9",
+				"targetEntity": "InStock",
+				"config": {
+					"fillbackField": null,
+					"transformMode": 1,
+					"fieldsMapping": {
+						"Type": [
+							"012-018269679e300cd7",
+							"VFIXED"
+						],
+						"InTime": "StockTransferId.TransferDate",
+						"WarehouseId": "StockTransferId.TransferTo"
+					},
+					"fieldsMappingDetail": {
+						"Quantity": "Number",
+						"ProductId": "ProductId"
+					}
+				}
+			}
+		]
+	}
+}

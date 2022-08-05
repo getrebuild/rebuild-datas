@@ -1,0 +1,331 @@
+{
+	"entity": "InStock",
+	"entityIcon": "assignment-returned",
+	"entityLabel": "入库",
+	"comments": "入库是对仓库内商品入库数量的确认",
+	"nameField": "InStockNo",
+	"quickFields": "",
+	"fields": [
+		{
+			"field": "Type",
+			"fieldLabel": "入库类型",
+			"displayType": "PICKLIST",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"items": [
+				[
+					"正常入库",
+					true,
+					0,
+					"",
+					"012-0182680739f23a14"
+				],
+				[
+					"盘盈入库",
+					false,
+					0,
+					"",
+					"012-0182680739f33a15"
+				],
+				[
+					"调拨入库",
+					false,
+					0,
+					"",
+					"012-018269679e300cd7"
+				]
+			]
+		},
+		{
+			"field": "WarehouseId",
+			"fieldLabel": "入库仓库",
+			"displayType": "REFERENCE",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"refEntity": "Warehouse",
+			"extConfig": {
+				"referenceCascadingField": null
+			}
+		},
+		{
+			"field": "InTime",
+			"fieldLabel": "入库时间",
+			"displayType": "DATE",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"defaultValue": "{NOW}",
+			"extConfig": {
+				"dateFormat": "yyyy-MM-dd"
+			}
+		},
+		{
+			"field": "InStockNo",
+			"fieldLabel": "入库编号",
+			"displayType": "SERIES",
+			"nullable": false,
+			"updatable": false,
+			"repeatable": false,
+			"queryable": true,
+			"extConfig": {
+				"advDesensitized": false,
+				"seriesZero": "N",
+				"advPattern": null,
+				"seriesFormat": "SRK-{YYYYMMDD}-{0000}"
+			}
+		}
+	],
+	"fillins": [],
+	"layouts": {
+		"FORM": [
+			{
+				"colspan": 2,
+				"field": "WarehouseId"
+			},
+			{
+				"colspan": 2,
+				"field": "Type"
+			},
+			{
+				"colspan": 2,
+				"field": "InTime"
+			},
+			{
+				"colspan": 2,
+				"field": "InStockNo"
+			},
+			{
+				"colspan": 4,
+				"field": "$DIVIDER$",
+				"label": ""
+			},
+			{
+				"colspan": 2,
+				"field": "createdOn"
+			},
+			{
+				"colspan": 2,
+				"field": "createdBy"
+			}
+		],
+		"DATALIST": [
+			{
+				"field": "InStockNo"
+			},
+			{
+				"field": "InTime"
+			},
+			{
+				"field": "WarehouseId"
+			},
+			{
+				"field": "Type"
+			},
+			{
+				"field": "approvalState"
+			},
+			{
+				"field": "createdOn"
+			},
+			{
+				"field": "createdBy"
+			}
+		]
+	},
+	"filters": [],
+	"triggers": [
+		{
+			"whenFilter": {
+				"items": [
+					{
+						"op": "IN",
+						"field": "Type",
+						"index": 1,
+						"value": "012-0182680739f33a15|012-018269679e300cd7"
+					}
+				],
+				"entity": "InStock"
+			},
+			"actionType": "AUTOAPPROVAL",
+			"actionContent": {
+				"submitMode": false,
+				"useApproval": null
+			},
+			"name": "盘点/调拨自动入库审批",
+			"priority": 19,
+			"when": 5,
+			"whenTimer": "D:1:0:23"
+		}
+	],
+	"approvals": [
+		{
+			"name": "入库审批",
+			"flowDefinition": {
+				"nodes": [
+					{
+						"data": {
+							"filter": null,
+							"users": [
+								"ALL"
+							]
+						},
+						"type": "start",
+						"nodeId": "ROOT"
+					},
+					{
+						"data": {
+							"selfSelecting": true,
+							"signMode": "OR",
+							"editableFields": [],
+							"users": []
+						},
+						"type": "approver",
+						"nodeId": "NODE23997784"
+					}
+				]
+			}
+		}
+	],
+	"transforms": [],
+	"detail": {
+		"entity": "InStockItem",
+		"entityIcon": "assignment",
+		"entityLabel": "入库明细",
+		"comments": "入库是对仓库内商品入库数量的确认",
+		"nameField": "ProductId",
+		"quickFields": "",
+		"fields": [
+			{
+				"field": "ProductId",
+				"fieldLabel": "产品",
+				"displayType": "REFERENCE",
+				"nullable": false,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"refEntity": "Product",
+				"extConfig": {
+					"referenceCascadingField": null
+				}
+			},
+			{
+				"field": "Quantity",
+				"fieldLabel": "数量",
+				"displayType": "NUMBER",
+				"nullable": false,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"defaultValue": "1",
+				"extConfig": {
+					"calcFormula": null,
+					"advDesensitized": false,
+					"notNegative": true
+				}
+			}
+		],
+		"fillins": [],
+		"layouts": {
+			"FORM": [
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "ProductId"
+				},
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "Quantity"
+				},
+				{
+					"colspan": 4,
+					"field": "$DIVIDER$",
+					"label": ""
+				},
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "createdOn"
+				},
+				{
+					"colspan": 2,
+					"displayOnUpdate": true,
+					"displayOnCreate": true,
+					"field": "createdBy"
+				}
+			],
+			"DATALIST": [
+				{
+					"field": "ProductId"
+				},
+				{
+					"field": "Quantity"
+				},
+				{
+					"field": "InStockId"
+				},
+				{
+					"field": "InStockId.approvalState"
+				},
+				{
+					"field": "createdOn"
+				},
+				{
+					"field": "createdBy"
+				}
+			]
+		},
+		"filters": [],
+		"triggers": [
+			{
+				"whenFilter": null,
+				"actionType": "GROUPAGGREGATION",
+				"actionContent": {
+					"dataFilter": {
+						"items": [
+							{
+								"op": "IN",
+								"field": "InStockId.approvalState",
+								"index": 1,
+								"value": "10"
+							}
+						],
+						"entity": "InStockItem"
+					},
+					"targetEntity": "Stock",
+					"autoCreate": true,
+					"groupFields": [
+						{
+							"sourceField": "InStockId.WarehouseId",
+							"targetField": "WarehouseId"
+						},
+						{
+							"sourceField": "ProductId",
+							"targetField": "ProductId"
+						}
+					],
+					"items": [
+						{
+							"sourceField": "Quantity",
+							"targetField": "InTotalQuantity",
+							"sourceFormula": null,
+							"calcMode": "SUM"
+						}
+					]
+				},
+				"name": "入库聚合",
+				"priority": 10,
+				"when": 384,
+				"whenTimer": "D:1:0:23"
+			}
+		]
+	}
+}
