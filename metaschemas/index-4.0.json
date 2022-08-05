@@ -73,7 +73,7 @@
       "name": "入库",
       "desc": "入库是对仓库内商品入库数量的确认",
       "key": "InStock",
-      "file": "schema-InStock.json",
+      "file": "schema-InStock-4.0.json",
       "refs": [
         "Warehouse",
         "Product",
@@ -84,7 +84,7 @@
       "name": "出库",
       "desc": "出库是对仓库内商品出库数量的确认",
       "key": "OutStock",
-      "file": "schema-OutStock.json",
+      "file": "schema-OutStock-4.0.json",
       "refs": [
         "Warehouse",
         "Product",
