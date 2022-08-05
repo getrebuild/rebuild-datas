@@ -1,4 +1,5 @@
-[{
+[
+    {
         "name": "中国省市区镇四级 (含港澳台)",
         "file": "CHINA-PCAS.json",
         "author": "REBUILD",
@@ -10,5 +11,12 @@
         "file": "CHINA-ICNEA.json",
         "author": "REBUILD",
         "source": "http://www.stats.gov.cn/tjsj/tjbz/"
+    },
+    {
+        "name": "国家地区 (英文)",
+        "file": "WORLD-STATES.en.json",
+        "author": "REBUILD",
+        "source": "https://github.com/dr5hn/countries-states-cities-database",
+        "updated": "2022-06-25"
     }
 ]

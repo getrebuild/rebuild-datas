@@ -14,10 +14,10 @@
 			"updatable": true,
 			"repeatable": true,
 			"queryable": true,
+			"defaultValue": "0",
 			"extConfig": {
 				"calcFormula": null,
 				"advDesensitized": false,
-				"advPattern": null,
 				"notNegative": false
 			}
 		},
@@ -29,10 +29,10 @@
 			"updatable": true,
 			"repeatable": true,
 			"queryable": true,
+			"defaultValue": "0",
 			"extConfig": {
 				"calcFormula": null,
 				"advDesensitized": false,
-				"advPattern": null,
 				"notNegative": false
 			}
 		},
@@ -54,14 +54,13 @@
 			"field": "ProductId",
 			"fieldLabel": "产品",
 			"displayType": "REFERENCE",
-			"nullable": true,
+			"nullable": false,
 			"updatable": true,
 			"repeatable": true,
 			"queryable": true,
 			"refEntity": "Product",
 			"extConfig": {
-				"advDesensitized": false,
-				"advPattern": null
+				"referenceCascadingField": null
 			}
 		},
 		{
@@ -72,10 +71,10 @@
 			"updatable": true,
 			"repeatable": true,
 			"queryable": true,
+			"defaultValue": "0",
 			"extConfig": {
 				"calcFormula": null,
 				"advDesensitized": false,
-				"advPattern": null,
 				"notNegative": false
 			}
 		}
@@ -85,23 +84,46 @@
 		"FORM": [
 			{
 				"colspan": 2,
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
 				"field": "ProductId"
 			},
 			{
 				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
 				"field": "WarehouseId"
 			},
 			{
 				"colspan": 4,
-				"field": "CurrentQuantity"
+				"field": "$DIVIDER$",
+				"label": ""
 			},
 			{
 				"colspan": 2,
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "InTotalQuantity"
+			},
+			{
+				"colspan": 2,
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
 				"field": "OutTotalQuantity"
 			},
 			{
 				"colspan": 2,
-				"field": "InTotalQuantity"
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "CurrentQuantity"
 			}
 		],
 		"DATALIST": [
@@ -119,6 +141,9 @@
 			},
 			{
 				"field": "OutTotalQuantity"
+			},
+			{
+				"field": "modifiedOn"
 			}
 		]
 	},
@@ -129,6 +154,7 @@
 			"actionType": "FIELDWRITEBACK",
 			"actionContent": {
 				"targetEntity": "$PRIMARY$.Stock",
+				"forceUpdate": false,
 				"items": [
 					{
 						"sourceField": "{InTotalQuantity}-{OutTotalQuantity}",
@@ -140,30 +166,31 @@
 			},
 			"name": "当前库存",
 			"priority": 9,
-			"when": 5,
-			"whenTimer": "D:1"
+			"when": 4,
+			"whenTimer": "D:1:0:23"
 		},
 		{
 			"whenFilter": null,
 			"actionType": "DATAVALIDATE",
 			"actionContent": {
-				"tipContent": "库存不足",
+				"tipContent": "{ProductId} 库存不能小于 0",
 				"validateFilter": {
 					"items": [
 						{
-							"op": "GE",
+							"op": "LT",
 							"field": "CurrentQuantity",
 							"index": 1,
 							"value": "0"
 						}
 					],
 					"entity": "Stock"
-				}
+				},
+				"version": 2
 			},
 			"name": "0库存校验",
-			"priority": 1,
-			"when": 5,
-			"whenTimer": "D:1"
+			"priority": 0,
+			"when": 4,
+			"whenTimer": "D:1:0:23"
 		}
 	],
 	"approvals": [],

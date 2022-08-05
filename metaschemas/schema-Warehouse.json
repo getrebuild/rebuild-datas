@@ -1,6 +1,6 @@
 {
 	"entity": "Warehouse",
-	"entityIcon": "store-24",
+	"entityIcon": "view-quilt",
 	"entityLabel": "仓库",
 	"comments": "仓库是以用于存放商品的地方",
 	"nameField": "WarehouseName",
@@ -24,12 +24,27 @@
 	"layouts": {
 		"FORM": [
 			{
-				"requiredOnCreate": true,
-				"requiredOnUpdate": true,
+				"colspan": 2,
 				"displayOnUpdate": true,
 				"displayOnCreate": true,
-				"field": "WarehouseName",
-				"isFull": false
+				"field": "WarehouseName"
+			},
+			{
+				"colspan": 4,
+				"field": "$DIVIDER$",
+				"label": ""
+			},
+			{
+				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "createdBy"
+			},
+			{
+				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "createdOn"
 			}
 		],
 		"DATALIST": [
@@ -37,10 +52,10 @@
 				"field": "WarehouseName"
 			},
 			{
-				"field": "createdBy"
+				"field": "createdOn"
 			},
 			{
-				"field": "createdOn"
+				"field": "createdBy"
 			}
 		]
 	},
