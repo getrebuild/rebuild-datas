@@ -99,7 +99,8 @@
       "refs": [
         "Warehouse",
         "Product"
-      ]
+      ],
+      "rbv": true
     },
     {
       "name": "盘点",
@@ -109,7 +110,8 @@
       "refs": [
         "InStock",
         "OutStock"
-      ]
+      ],
+      "rbv": true
     },
     {
       "name": "调拨",
@@ -119,7 +121,8 @@
       "refs": [
         "InStock",
         "OutStock"
-      ]
+      ],
+      "rbv": true
     }
   ]
 }
