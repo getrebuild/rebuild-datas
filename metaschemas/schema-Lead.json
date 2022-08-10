@@ -1,189 +1,202 @@
 {
-  "entity": "Lead",
-  "entityIcon": "pin-account",
-  "entityLabel": "线索",
-  "comments": "线索是与客户初次接触获得的原始信息，可以是从展会中获得的名片，通过推广活动获得的电话号码，或是会议、广告、外部购买等渠道获得的客户简单信息，然后通过管理和跟进可以转化为客户",
-  "nameField": "LeadName",
-  "quickFields": "",
-  "fields": [
-    {
-      "field": "Telephone",
-      "fieldLabel": "联系电话",
-      "displayType": "PHONE",
-      "nullable": true,
-      "updatable": true,
-      "repeatable": true,
-      "queryable": true
-    },
-    {
-      "field": "LeadName",
-      "fieldLabel": "线索名称",
-      "displayType": "TEXT",
-      "nullable": false,
-      "updatable": true,
-      "repeatable": true,
-      "queryable": true
-    },
-    {
-      "field": "ContactName",
-      "fieldLabel": "联系人",
-      "displayType": "TEXT",
-      "nullable": false,
-      "updatable": true,
-      "repeatable": true,
-      "queryable": true
-    },
-    {
-      "field": "Industry",
-      "fieldLabel": "所属行业",
-      "displayType": "CLASSIFICATION",
-      "nullable": true,
-      "updatable": true,
-      "repeatable": true,
-      "queryable": true,
-      "extConfig": {
-        "classification": "018-0000000000000002"
-      }
-    },
-    {
-      "field": "Email",
-      "fieldLabel": "邮箱",
-      "displayType": "EMAIL",
-      "nullable": true,
-      "updatable": true,
-      "repeatable": true,
-      "queryable": true
-    },
-    {
-      "field": "Source",
-      "fieldLabel": "来源",
-      "displayType": "PICKLIST",
-      "nullable": true,
-      "updatable": true,
-      "repeatable": true,
-      "queryable": true,
-      "items": [
-        [
-          "官网",
-          false,
-          0
-        ],
-        [
-          "展会",
-          false,
-          0
-        ],
-        [
-          "名片",
-          false,
-          0
-        ],
-        [
-          "会议营销",
-          false,
-          0
-        ],
-        [
-          "百度",
-          false,
-          0
-        ],
-        [
-          "其他",
-          true,
-          0
-        ]
-      ]
-    },
-    {
-      "field": "Area",
-      "fieldLabel": "所在地区",
-      "displayType": "CLASSIFICATION",
-      "nullable": true,
-      "updatable": true,
-      "repeatable": true,
-      "queryable": true,
-      "extConfig": {
-        "classification": "018-0000000000000001"
-      }
-    }
-  ],
-  "layouts": {
-    "FORM": [
-      {
-        "field": "LeadName",
-        "isFull": false
-      },
-      {
-        "field": "ContactName",
-        "isFull": false
-      },
-      {
-        "field": "Telephone",
-        "isFull": false
-      },
-      {
-        "field": "Email",
-        "isFull": false
-      },
-      {
-        "field": "Industry",
-        "isFull": false
-      },
-      {
-        "field": "Area",
-        "isFull": false
-      },
-      {
-        "field": "Source",
-        "isFull": false
-      }
-    ],
-    "DATALIST": [
-      {
-        "field": "LeadName"
-      },
-      {
-        "field": "ContactName"
-      },
-      {
-        "field": "Telephone"
-      },
-      {
-        "field": "Email"
-      },
-      {
-        "field": "Area"
-      },
-      {
-        "field": "Industry"
-      },
-      {
-        "field": "Source"
-      },
-      {
-        "field": "createdOn"
-      }
-    ]
-  },
-  "fillins": [],
-  "filters": [],
-  "triggers": [],
-  "approvals": [],
-  "transforms": [
-    {
-      "targetEntity": "Account",
-      "name": "线索转客户",
-      "config": {
-        "fillbackField": null,
-        "fieldsMapping": {
-          "Industry": "Industry",
-          "Area": "Area",
-          "Telephone": "Telephone",
-          "SourceLead": "LeadId",
-          "AccountName": "ContactName"
-        }
-      }
-    }
-  ]
+	"entity": "Lead",
+	"entityIcon": "pin-account",
+	"entityLabel": "线索",
+	"comments": "线索是与客户初次接触获得的原始信息，可以是从展会中获得的名片，通过推广活动获得的电话号码，或是会议、广告、外部购买等渠道获得的客户简单信息，然后通过管理和跟进可以转化为客户",
+	"nameField": "LeadName",
+	"quickFields": "",
+	"fields": [
+		{
+			"field": "Telephone",
+			"fieldLabel": "联系电话",
+			"displayType": "PHONE",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true
+		},
+		{
+			"field": "LeadName",
+			"fieldLabel": "线索名称",
+			"displayType": "TEXT",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true
+		},
+		{
+			"field": "ContactName",
+			"fieldLabel": "联系人",
+			"displayType": "TEXT",
+			"nullable": false,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true
+		},
+		{
+			"field": "Industry",
+			"fieldLabel": "所属行业",
+			"displayType": "CLASSIFICATION",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"extConfig": {
+				"classification": "018-0000000000000002"
+			}
+		},
+		{
+			"field": "Email",
+			"fieldLabel": "邮箱",
+			"displayType": "EMAIL",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true
+		},
+		{
+			"field": "Source",
+			"fieldLabel": "来源",
+			"displayType": "PICKLIST",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"items": [
+				[
+					"官网",
+					false,
+					0,
+					"",
+					"012-0182827523b600a0"
+				],
+				[
+					"展会",
+					false,
+					0,
+					"",
+					"012-0182827523b900a1"
+				],
+				[
+					"名片",
+					false,
+					0,
+					"",
+					"012-0182827523ba00a2"
+				],
+				[
+					"会议营销",
+					false,
+					0,
+					"",
+					"012-0182827523bb00a3"
+				],
+				[
+					"百度",
+					false,
+					0,
+					"",
+					"012-0182827523bd00a4"
+				],
+				[
+					"其他",
+					true,
+					0,
+					"",
+					"012-0182827523be00a5"
+				]
+			]
+		},
+		{
+			"field": "Area",
+			"fieldLabel": "所在地区",
+			"displayType": "CLASSIFICATION",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"extConfig": {
+				"classification": "018-0000000000000001"
+			}
+		}
+	],
+	"fillins": [],
+	"layouts": {
+		"FORM": [
+			{
+				"field": "LeadName",
+				"isFull": false
+			},
+			{
+				"field": "ContactName",
+				"isFull": false
+			},
+			{
+				"field": "Telephone",
+				"isFull": false
+			},
+			{
+				"field": "Email",
+				"isFull": false
+			},
+			{
+				"field": "Industry",
+				"isFull": false
+			},
+			{
+				"field": "Area",
+				"isFull": false
+			},
+			{
+				"field": "Source",
+				"isFull": false
+			}
+		],
+		"DATALIST": [
+			{
+				"field": "LeadName"
+			},
+			{
+				"field": "ContactName"
+			},
+			{
+				"field": "Telephone"
+			},
+			{
+				"field": "Email"
+			},
+			{
+				"field": "Area"
+			},
+			{
+				"field": "Industry"
+			},
+			{
+				"field": "Source"
+			},
+			{
+				"field": "createdOn"
+			}
+		]
+	},
+	"filters": [],
+	"triggers": [],
+	"transforms": [
+		{
+			"name": "线索转客户",
+			"_id": "037-0182827523b0009f",
+			"targetEntity": "Account",
+			"config": {
+				"fillbackField": null,
+				"fieldsMapping": {
+					"Industry": "Industry",
+					"Area": "Area",
+					"Telephone": "Telephone",
+					"SourceLead": "LeadId",
+					"AccountName": "ContactName"
+				}
+			}
+		}
+	],
+	"approvals": []
 }

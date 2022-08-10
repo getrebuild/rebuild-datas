@@ -377,6 +377,31 @@
 						"ProductId": "ProductId"
 					}
 				}
+			},
+			{
+				"name": "调入仓入库",
+				"_id": "037-0182696893bf0cd9",
+				"targetEntity": "InStock",
+				"config": {
+					"fillbackField": "ToStockInId",
+					"transformMode": 1,
+					"fieldsMapping": {
+						"Type": [
+							"012-018269679e300cd7",
+							"VFIXED"
+						],
+						"InTime": "StockTransferId.TransferDate",
+						"State": [
+							"012-01828594c4e70009",
+							"VFIXED"
+						],
+						"WarehouseId": "StockTransferId.TransferTo"
+					},
+					"fieldsMappingDetail": {
+						"Quantity": "Number",
+						"ProductId": "ProductId"
+					}
+				}
 			}
 		]
 	}
