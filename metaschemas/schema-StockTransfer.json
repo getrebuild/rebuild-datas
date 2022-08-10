@@ -171,14 +171,14 @@
 		"quickFields": "",
 		"fields": [
 			{
-				"field": "ProductId",
-				"fieldLabel": "产品",
+				"field": "ToStockInId",
+				"fieldLabel": "S调入入库",
 				"displayType": "REFERENCE",
-				"nullable": false,
-				"updatable": true,
+				"nullable": true,
+				"updatable": false,
 				"repeatable": true,
 				"queryable": true,
-				"refEntity": "Product",
+				"refEntity": "InStock",
 				"extConfig": {
 					"referenceCascadingField": null
 				}
@@ -192,6 +192,32 @@
 				"repeatable": true,
 				"queryable": true,
 				"refEntity": "Warehouse",
+				"extConfig": {
+					"referenceCascadingField": null
+				}
+			},
+			{
+				"field": "ToStockOutId",
+				"fieldLabel": "S调出出库",
+				"displayType": "REFERENCE",
+				"nullable": true,
+				"updatable": false,
+				"repeatable": true,
+				"queryable": true,
+				"refEntity": "OutStock",
+				"extConfig": {
+					"referenceCascadingField": null
+				}
+			},
+			{
+				"field": "ProductId",
+				"fieldLabel": "产品",
+				"displayType": "REFERENCE",
+				"nullable": false,
+				"updatable": true,
+				"repeatable": true,
+				"queryable": true,
+				"refEntity": "Product",
 				"extConfig": {
 					"referenceCascadingField": null
 				}
@@ -267,7 +293,7 @@
 					"transformOnce": false
 				},
 				"name": "调拨出库",
-				"priority": 20,
+				"priority": 99,
 				"when": 128,
 				"whenTimer": "D:1:0:23"
 			},
@@ -279,8 +305,50 @@
 					"transformOnce": false
 				},
 				"name": "调拨入库",
-				"priority": 20,
+				"priority": 99,
 				"when": 128,
+				"whenTimer": "D:1:0:23"
+			},
+			{
+				"whenFilter": null,
+				"actionType": "FIELDWRITEBACK",
+				"actionContent": {
+					"targetEntity": "ToStockInId.InStock",
+					"one2one": true,
+					"forceUpdate": true,
+					"items": [
+						{
+							"sourceField": "012-01828594c4e8000a",
+							"targetField": "State",
+							"updateMode": "VFIXED"
+						}
+					],
+					"readonlyFields": true
+				},
+				"name": "调拨入库作废",
+				"priority": 99,
+				"when": 256,
+				"whenTimer": "D:1:0:23"
+			},
+			{
+				"whenFilter": null,
+				"actionType": "FIELDWRITEBACK",
+				"actionContent": {
+					"targetEntity": "ToStockOutId.OutStock",
+					"one2one": true,
+					"forceUpdate": true,
+					"items": [
+						{
+							"sourceField": "012-0182858952500005",
+							"targetField": "State",
+							"updateMode": "VFIXED"
+						}
+					],
+					"readonlyFields": true
+				},
+				"name": "调拨出库作废",
+				"priority": 99,
+				"when": 256,
 				"whenTimer": "D:1:0:23"
 			}
 		],
@@ -290,7 +358,7 @@
 				"_id": "037-01826966df170cd6",
 				"targetEntity": "OutStock",
 				"config": {
-					"fillbackField": null,
+					"fillbackField": "ToStockOutId",
 					"transformMode": 1,
 					"fieldsMapping": {
 						"Type": [
@@ -298,28 +366,11 @@
 							"VFIXED"
 						],
 						"OutTime": "StockTransferId.TransferDate",
-						"WarehouseId": "TransferFrom"
-					},
-					"fieldsMappingDetail": {
-						"Quantity": "Number",
-						"ProductId": "ProductId"
-					}
-				}
-			},
-			{
-				"name": "调入仓入库",
-				"_id": "037-0182696893bf0cd9",
-				"targetEntity": "InStock",
-				"config": {
-					"fillbackField": null,
-					"transformMode": 1,
-					"fieldsMapping": {
-						"Type": [
-							"012-018269679e300cd7",
+						"State": [
+							"012-01828589524f0004",
 							"VFIXED"
 						],
-						"InTime": "StockTransferId.TransferDate",
-						"WarehouseId": "StockTransferId.TransferTo"
+						"WarehouseId": "TransferFrom"
 					},
 					"fieldsMappingDetail": {
 						"Quantity": "Number",

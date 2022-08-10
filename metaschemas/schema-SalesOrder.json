@@ -74,6 +74,7 @@
 			}
 		}
 	],
+	"fillins": [],
 	"layouts": {
 		"FORM": [
 			{
@@ -161,7 +162,6 @@
 			}
 		]
 	},
-	"fillins": [],
 	"filters": [
 		{
 			"filterName": "我的订单",
@@ -178,6 +178,7 @@
 		}
 	],
 	"triggers": [],
+	"transforms": [],
 	"approvals": [
 		{
 			"name": "订单审批",
@@ -210,7 +211,6 @@
 			}
 		}
 	],
-	"transforms": [],
 	"detail": {
 		"entity": "SalesOrderItem",
 		"entityIcon": "format-list-numbered",
@@ -268,6 +268,17 @@
 				}
 			}
 		],
+		"fillins": [
+			{
+				"belongField": "ProductId",
+				"sourceField": "UnitPrice",
+				"targetField": "UnitPrice",
+				"extConfig": {
+					"whenCreate": true,
+					"whenUpdate": false
+				}
+			}
+		],
 		"layouts": {
 			"FORM": [
 				{
@@ -288,17 +299,6 @@
 				}
 			]
 		},
-		"fillins": [
-			{
-				"belongField": "ProductId",
-				"sourceField": "UnitPrice",
-				"targetField": "UnitPrice",
-				"extConfig": {
-					"whenCreate": true,
-					"whenUpdate": false
-				}
-			}
-		],
 		"filters": [],
 		"triggers": [
 			{
@@ -306,6 +306,7 @@
 				"actionType": "FIELDAGGREGATION",
 				"actionContent": {
 					"targetEntity": "$PRIMARY$.SalesOrderItem",
+					"forceUpdate": false,
 					"items": [
 						{
 							"targetField": "SubtotalAmount",
@@ -316,15 +317,16 @@
 					"readonlyFields": true
 				},
 				"name": "订单明细小计",
-				"priority": 2,
+				"priority": 18,
 				"when": 5,
-				"whenTimer": "D:1"
+				"whenTimer": "D:1:0:23"
 			},
 			{
 				"whenFilter": null,
 				"actionType": "FIELDAGGREGATION",
 				"actionContent": {
 					"targetEntity": "SalesOrderId.SalesOrder",
+					"forceUpdate": false,
 					"items": [
 						{
 							"sourceField": "SubtotalAmount",
@@ -335,10 +337,11 @@
 					"readonlyFields": true
 				},
 				"name": "订单明细汇总到订单金额",
-				"priority": 1,
+				"priority": 19,
 				"when": 7,
-				"whenTimer": "D:1"
+				"whenTimer": "D:1:0:23"
 			}
-		]
+		],
+		"transforms": []
 	}
 }

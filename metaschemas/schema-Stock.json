@@ -134,13 +134,13 @@
 				"field": "ProductId"
 			},
 			{
-				"field": "CurrentQuantity"
-			},
-			{
 				"field": "InTotalQuantity"
 			},
 			{
 				"field": "OutTotalQuantity"
+			},
+			{
+				"field": "CurrentQuantity"
 			},
 			{
 				"field": "modifiedOn"
@@ -165,7 +165,7 @@
 				"readonlyFields": false
 			},
 			"name": "当前库存",
-			"priority": 9,
+			"priority": 78,
 			"when": 4,
 			"whenTimer": "D:1:0:23"
 		},
@@ -193,6 +193,6 @@
 			"whenTimer": "D:1:0:23"
 		}
 	],
-	"approvals": [],
-	"transforms": []
+	"transforms": [],
+	"approvals": []
 }

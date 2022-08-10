@@ -65,6 +65,31 @@
 			}
 		},
 		{
+			"field": "State",
+			"fieldLabel": "状态",
+			"displayType": "PICKLIST",
+			"nullable": true,
+			"updatable": true,
+			"repeatable": true,
+			"queryable": true,
+			"items": [
+				[
+					"有效",
+					true,
+					0,
+					"#34a853",
+					"012-01828594c4e70009"
+				],
+				[
+					"作废",
+					false,
+					0,
+					"#ea4335",
+					"012-01828594c4e8000a"
+				]
+			]
+		},
+		{
 			"field": "InStockNo",
 			"fieldLabel": "入库编号",
 			"displayType": "SERIES",
@@ -85,18 +110,26 @@
 		"FORM": [
 			{
 				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
 				"field": "WarehouseId"
 			},
 			{
 				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
 				"field": "Type"
 			},
 			{
 				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
 				"field": "InTime"
 			},
 			{
 				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
 				"field": "InStockNo"
 			},
 			{
@@ -106,10 +139,22 @@
 			},
 			{
 				"colspan": 2,
+				"requiredOnCreate": false,
+				"requiredOnUpdate": false,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
+				"field": "State"
+			},
+			{
+				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
 				"field": "createdOn"
 			},
 			{
 				"colspan": 2,
+				"displayOnUpdate": true,
+				"displayOnCreate": true,
 				"field": "createdBy"
 			}
 		],
@@ -128,6 +173,9 @@
 			},
 			{
 				"field": "approvalState"
+			},
+			{
+				"field": "State"
 			},
 			{
 				"field": "createdOn"
@@ -157,11 +205,12 @@
 				"useApproval": null
 			},
 			"name": "盘点/调拨自动入库审批",
-			"priority": 19,
+			"priority": 89,
 			"when": 5,
 			"whenTimer": "D:1:0:23"
 		}
 	],
+	"transforms": [],
 	"approvals": [
 		{
 			"name": "入库审批",
@@ -191,7 +240,6 @@
 			}
 		}
 	],
-	"transforms": [],
 	"detail": {
 		"entity": "InStockItem",
 		"entityIcon": "assignment",
@@ -290,12 +338,19 @@
 				"actionType": "GROUPAGGREGATION",
 				"actionContent": {
 					"dataFilter": {
+						"equation": "AND",
 						"items": [
 							{
 								"op": "IN",
 								"field": "InStockId.approvalState",
 								"index": 1,
 								"value": "10"
+							},
+							{
+								"op": "NIN",
+								"field": "InStockId.State",
+								"index": 2,
+								"value": "012-01828594c4e8000a"
 							}
 						],
 						"entity": "InStockItem"
@@ -319,13 +374,15 @@
 							"sourceFormula": null,
 							"calcMode": "SUM"
 						}
-					]
+					],
+					"readonlyFields": true
 				},
 				"name": "入库聚合",
-				"priority": 10,
-				"when": 384,
+				"priority": 79,
+				"when": 388,
 				"whenTimer": "D:1:0:23"
 			}
-		]
+		],
+		"transforms": []
 	}
 }
