@@ -317,7 +317,7 @@
 					"readonlyFields": true
 				},
 				"name": "订单明细小计",
-				"priority": 18,
+				"priority": 19,
 				"when": 5,
 				"whenTimer": "D:1:0:23"
 			},
@@ -337,7 +337,7 @@
 					"readonlyFields": true
 				},
 				"name": "订单明细汇总到订单金额",
-				"priority": 19,
+				"priority": 18,
 				"when": 7,
 				"whenTimer": "D:1:0:23"
 			}
