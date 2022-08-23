@@ -4,16 +4,17 @@
         "file": "CHINA-PCAS.json",
         "author": "REBUILD",
         "source": "https://github.com/modood/Administrative-divisions-of-China",
-        "updated": "2019-04-29"
+        "updated": "2020-04-29"
     },
     {
         "name": "国标行业分类二级 (GB/T 4754-2017)",
         "file": "CHINA-ICNEA.json",
         "author": "REBUILD",
-        "source": "http://www.stats.gov.cn/tjsj/tjbz/"
+        "source": "http://www.stats.gov.cn/tjsj/tjbz/",
+        "updated": "2020-04-29"
     },
     {
-        "name": "国家地区 (英文)",
+        "name": "国家地区 (中英)",
         "file": "WORLD-STATES.en.json",
         "author": "REBUILD",
         "source": "https://github.com/dr5hn/countries-states-cities-database",
