@@ -303,15 +303,15 @@
 		"triggers": [
 			{
 				"whenFilter": null,
-				"actionType": "FIELDAGGREGATION",
+				"actionType": "FIELDWRITEBACK",
 				"actionContent": {
 					"targetEntity": "$PRIMARY$.SalesOrderItem",
 					"forceUpdate": false,
 					"items": [
 						{
+							"sourceField": "{UnitPrice}×{Quantity}",
 							"targetField": "SubtotalAmount",
-							"sourceFormula": "{UnitPrice}×{Quantity}",
-							"calcMode": "FORMULA"
+							"updateMode": "FORMULA"
 						}
 					],
 					"readonlyFields": true
