@@ -1,9 +1,30 @@
 [
-    {
-        "name": "通用CRM",
-        "file": "crm-general.zip",
-        "author": "REBUILD",
-        "source": "https://getrebuild.com/appstore/crm-general/",
-        "updated": "2024-12-01"
-    }
+  {
+    "name": "CRM 客户关系管理",
+    "file": "crm-general.zip",
+    "author": "REBUILD",
+    "source": "https://getrebuild.com/apps/rb-crm",
+    "updated": "2025-09-03"
+  },
+  {
+    "name": "MES 生产管理系统",
+    "file": "mes-general.zip",
+    "author": "REBUILD",
+    "source": "https://getrebuild.com/apps/rb-mes",
+    "updated": "2025-09-03"
+  },
+  {
+    "name": "WMS 仓储库存管理",
+    "file": "wms-general.zip",
+    "author": "REBUILD",
+    "source": "https://getrebuild.com/apps/rb-wms",
+    "updated": "2025-09-03"
+  },
+  {
+    "name": "HRM 人力资源管理",
+    "file": "hrm-general.zip",
+    "author": "REBUILD",
+    "source": "https://getrebuild.com/apps/rb-hrm",
+    "updated": "2025-09-03"
+  }
 ]
