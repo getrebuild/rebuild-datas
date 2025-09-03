@@ -1,6 +1,7 @@
 [
   {
     "name": "CRM 客户关系管理",
+    "desc": "优化客户全生命周期提升满意度和销售转化，驱动企业增长与客户价值最大化",
     "file": "crm-general.zip",
     "author": "REBUILD",
     "source": "https://getrebuild.com/apps/rb-crm",
@@ -8,6 +9,7 @@
   },
   {
     "name": "MES 生产管理系统",
+    "desc": "从生产订单下达到产品完成的全流程跟踪与管控",
     "file": "mes-general.zip",
     "author": "REBUILD",
     "source": "https://getrebuild.com/apps/rb-mes",
@@ -15,6 +17,7 @@
   },
   {
     "name": "WMS 仓储库存管理",
+    "desc": "智能仓储管理系统，实现库存精准管控，提升效率，降低成本",
     "file": "wms-general.zip",
     "author": "REBUILD",
     "source": "https://getrebuild.com/apps/rb-wms",
@@ -22,6 +25,7 @@
   },
   {
     "name": "HRM 人力资源管理",
+    "desc": "数对人头，做好考勤、算好薪酬、发对工资",
     "file": "hrm-general.zip",
     "author": "REBUILD",
     "source": "https://getrebuild.com/apps/rb-hrm",
