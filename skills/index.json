@@ -1,54 +1,52 @@
-{
-  "skills": [
-    {
-      "name": "工作日报助手",
-      "description": "查询当日/本周工作记录与任务，自动生成结构化日报周报",
-      "file": "work-daily.json"
-    },
-    {
-      "name": "审批催办助手",
-      "description": "查询待审批记录，按审批人/时长分类汇总并生成催办话术",
-      "file": "approval-reminder.json"
-    },
-    {
-      "name": "客户跟进助手",
-      "description": "分析客户跟进记录，识别长期未跟进客户并输出优先级清单",
-      "file": "customer-follow.json"
-    },
-    {
-      "name": "销售漏斗分析",
-      "description": "分阶段统计商机数量与金额，计算转化率并输出漏斗报告",
-      "file": "sales-funnel.json"
-    },
-    {
-      "name": "数据异常检测",
-      "description": "检测重复记录、必填字段缺失、数值异常，生成异常清单",
-      "file": "data-anomaly.json"
-    },
-    {
-      "name": "业务健康度诊断",
-      "description": "全局数据概览：各实体记录量、增长趋势、空字段率，输出健康度评分",
-      "file": "business-health.json"
-    },
-    {
-      "name": "合同到期预警助手",
-      "description": "查询即将到期或已过期的合同，按紧急程度分类并生成跟进建议",
-      "file": "contract-expiry.json"
-    },
-    {
-      "name": "库存预警助手",
-      "description": "检测库存不足和积压，生成补货建议和清库存清单",
-      "file": "inventory-warning.json"
-    },
-    {
-      "name": "项目进度追踪助手",
-      "description": "查询项目任务进度，识别延期任务和瓶颈，输出进度报告",
-      "file": "project-progress.json"
-    },
-    {
-      "name": "团队工作量分析助手",
-      "description": "分析团队成员的任务分配和完成率，识别过载和空闲成员",
-      "file": "team-workload.json"
-    }
-  ]
-}
+[
+  {
+    "name": "工作日报助手",
+    "description": "查询当日/本周工作记录与任务，自动生成结构化日报周报",
+    "file": "work-daily.json"
+  },
+  {
+    "name": "审批催办助手",
+    "description": "查询待审批记录，按审批人/时长分类汇总并生成催办话术",
+    "file": "approval-reminder.json"
+  },
+  {
+    "name": "客户跟进助手",
+    "description": "分析客户跟进记录，识别长期未跟进客户并输出优先级清单",
+    "file": "customer-follow.json"
+  },
+  {
+    "name": "销售漏斗分析",
+    "description": "分阶段统计商机数量与金额，计算转化率并输出漏斗报告",
+    "file": "sales-funnel.json"
+  },
+  {
+    "name": "数据异常检测",
+    "description": "检测重复记录、必填字段缺失、数值异常，生成异常清单",
+    "file": "data-anomaly.json"
+  },
+  {
+    "name": "业务健康度诊断",
+    "description": "全局数据概览：各实体记录量、增长趋势、空字段率，输出健康度评分",
+    "file": "business-health.json"
+  },
+  {
+    "name": "合同到期预警助手",
+    "description": "查询即将到期或已过期的合同，按紧急程度分类并生成跟进建议",
+    "file": "contract-expiry.json"
+  },
+  {
+    "name": "库存预警助手",
+    "description": "检测库存不足和积压，生成补货建议和清库存清单",
+    "file": "inventory-warning.json"
+  },
+  {
+    "name": "项目进度追踪助手",
+    "description": "查询项目任务进度，识别延期任务和瓶颈，输出进度报告",
+    "file": "project-progress.json"
+  },
+  {
+    "name": "团队工作量分析助手",
+    "description": "分析团队成员的任务分配和完成率，识别过载和空闲成员",
+    "file": "team-workload.json"
+  }
+]
