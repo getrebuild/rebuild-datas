@@ -1,23 +1,13 @@
 [
   {
+    "name": "会议纪要助手",
+    "description": "整理会议纪要，提取行动项并自动创建项目任务、发布会议动态",
+    "file": "meeting-notes.json"
+  },
+  {
     "name": "工作日报助手",
     "description": "查询当日/本周工作记录与任务，自动生成结构化日报周报",
     "file": "work-daily.json"
-  },
-  {
-    "name": "审批催办助手",
-    "description": "查询待审批记录，按审批人/时长分类汇总并生成催办话术",
-    "file": "approval-reminder.json"
-  },
-  {
-    "name": "客户跟进助手",
-    "description": "分析客户跟进记录，识别长期未跟进客户并输出优先级清单",
-    "file": "customer-follow.json"
-  },
-  {
-    "name": "销售漏斗分析",
-    "description": "分阶段统计商机数量与金额，计算转化率并输出漏斗报告",
-    "file": "sales-funnel.json"
   },
   {
     "name": "数据异常检测",
@@ -30,23 +20,23 @@
     "file": "business-health.json"
   },
   {
-    "name": "合同到期预警助手",
-    "description": "查询即将到期或已过期的合同，按紧急程度分类并生成跟进建议",
-    "file": "contract-expiry.json"
+    "name": "审批处理助手",
+    "description": "查询待我审批的记录，汇总关键信息与审批状态，经确认后辅助完成审批",
+    "file": "approval-process.json"
   },
   {
-    "name": "库存预警助手",
-    "description": "检测库存不足和积压，生成补货建议和清库存清单",
-    "file": "inventory-warning.json"
+    "name": "实体建模助手",
+    "description": "管理员助手：根据业务需求设计实体与字段方案，确认后自动创建",
+    "file": "entity-modeling.json"
   },
   {
-    "name": "项目进度追踪助手",
-    "description": "查询项目任务进度，识别延期任务和瓶颈，输出进度报告",
-    "file": "project-progress.json"
+    "name": "定时提醒助手",
+    "description": "创建和管理 AI 定时任务：每日巡检、每周汇报、到期提醒，结果自动站内信通知",
+    "file": "schedule-reminder.json"
   },
   {
-    "name": "团队工作量分析助手",
-    "description": "分析团队成员的任务分配和完成率，识别过载和空闲成员",
-    "file": "team-workload.json"
+    "name": "报表导出助手",
+    "description": "查找实体的报表模板，按条件筛选并导出报表文件，返回下载链接",
+    "file": "report-export.json"
   }
 ]
