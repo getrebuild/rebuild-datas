@@ -1,0 +1,42 @@
+[
+  {
+    "name": "会议纪要助手",
+    "description": "整理会议纪要，行动项可一键创建为项目任务",
+    "file": "meeting-notes.json"
+  },
+  {
+    "name": "工作日报助手",
+    "description": "根据工作记录生成日报、周报",
+    "file": "work-daily.json"
+  },
+  {
+    "name": "数据异常检测",
+    "description": "查找重复记录、必填缺失和数值异常",
+    "file": "data-anomaly.json"
+  },
+  {
+    "name": "业务健康度诊断",
+    "description": "查看各实体的记录数量和字段填写情况",
+    "file": "business-health.json"
+  },
+  {
+    "name": "审批处理助手",
+    "description": "查看待我审批的记录，确认后协助审批",
+    "file": "approval-process.json"
+  },
+  {
+    "name": "实体建模助手",
+    "description": "按需求创建实体和字段（限管理员）",
+    "file": "entity-modeling.json"
+  },
+  {
+    "name": "定时提醒助手",
+    "description": "设置定时任务，定时执行并通知结果",
+    "file": "schedule-reminder.json"
+  },
+  {
+    "name": "报表导出助手",
+    "description": "按条件筛选并导出报表文件",
+    "file": "report-export.json"
+  }
+]
