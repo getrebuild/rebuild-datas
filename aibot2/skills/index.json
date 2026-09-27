@@ -1,18 +1,8 @@
 [
   {
-    "name": "会议纪要助手",
-    "description": "整理会议纪要，行动项可一键创建为项目任务",
-    "file": "meeting-notes.json"
-  },
-  {
     "name": "工作日报助手",
     "description": "根据工作记录生成日报、周报",
     "file": "work-daily.json"
-  },
-  {
-    "name": "数据异常检测",
-    "description": "查找重复记录、必填缺失和数值异常",
-    "file": "data-anomaly.json"
   },
   {
     "name": "业务健康度诊断",
@@ -35,8 +25,8 @@
     "file": "schedule-reminder.json"
   },
   {
-    "name": "报表导出助手",
-    "description": "按条件筛选并导出报表文件",
-    "file": "report-export.json"
+    "name": "文件录入助手",
+    "description": "解析上传的 Excel/CSV 等文件，批量新建或更新记录",
+    "file": "file-import.json"
   }
 ]
