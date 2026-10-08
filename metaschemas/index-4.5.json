@@ -122,16 +122,6 @@
       "name": "WMS 仓储库存",
       "desc": "覆盖入库、出库、盘点、来料与拣配管理，实现库存精准管控与仓库作业全流程信息化",
       "url": "https://getrebuild.com/apps/rb-wms"
-    },
-    {
-      "name": "OMS 订单管理",
-      "desc": "围绕订单创建、履约、发货到回款的全流程跟踪与协同管理（即将推出）",
-      "url": "https://getrebuild.com/apps/rb-oms"
-    },
-    {
-      "name": "TMS 运输管理",
-      "desc": "围绕运输计划、调度、运单跟踪与运费结算的全流程管理（即将推出）",
-      "url": "https://getrebuild.com/apps/rb-tms"
     }
   ]
 }
