@@ -3,5 +3,20 @@
     "name": "系统配置审查",
     "description": "全面检查实体、字段、触发器与引用关系配置的合理性（限管理员）",
     "file": "config-review.json"
+  },
+  {
+    "name": "业务健康度诊断",
+    "description": "查看各实体的记录数量和字段填写情况",
+    "file": "business-health.json"
+  },
+  {
+    "name": "审批处理助手",
+    "description": "查看待我审批的记录，确认后协助审批",
+    "file": "approval-process.json"
+  },
+  {
+    "name": "文件录入助手",
+    "description": "解析上传的 Excel/CSV 等文件，批量新建或更新记录",
+    "file": "file-import.json"
   }
 ]
