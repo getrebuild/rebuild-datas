@@ -1,0 +1,7 @@
+[
+  {
+    "name": "系统配置审查",
+    "description": "全面检查实体、字段、触发器与引用关系配置的合理性（限管理员）",
+    "file": "config-review.json"
+  }
+]

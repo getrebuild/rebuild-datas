@@ -38,5 +38,10 @@
     "name": "报表导出助手",
     "description": "按条件筛选并导出报表文件",
     "file": "report-export.json"
+  },
+  {
+    "name": "系统配置审查",
+    "description": "全面检查实体、字段、触发器与引用关系配置的合理性（限管理员）",
+    "file": "config-review.json"
   }
 ]
