@@ -1,32 +1,32 @@
 [
   {
     "name": "工作日报助手",
-    "description": "根据工作记录生成日报、周报",
+    "description": "根据工作记录自动生成日报、周报，无需自己回忆整理",
     "file": "work-daily.json"
   },
   {
     "name": "业务健康度诊断",
-    "description": "查看各实体的记录数量和字段填写情况",
+    "description": "摸底各项业务的数据量和使用情况，发现管理盲区",
     "file": "business-health.json"
   },
   {
     "name": "审批处理助手",
-    "description": "查看待我审批的记录，确认后协助审批",
+    "description": "集中查看待我审批的事项，确认后协助处理，不用再到处找审批",
     "file": "approval-process.json"
   },
   {
     "name": "实体建模助手",
-    "description": "按需求创建实体和字段（限管理员）",
+    "description": "按业务需求设计数据管理方案，确认后创建，避免建错返工（限管理员）",
     "file": "entity-modeling.json"
   },
   {
     "name": "定时提醒助手",
-    "description": "设置定时任务，定时执行并通知结果",
+    "description": "设置定时任务，到点自动执行并通知结果，重要事项不遗漏",
     "file": "schedule-reminder.json"
   },
   {
     "name": "文件录入助手",
-    "description": "解析上传的 Excel/CSV 等文件，批量新建或更新记录",
+    "description": "上传文件即可批量录入或更新数据，免去手工逐条填写",
     "file": "file-import.json"
   }
 ]

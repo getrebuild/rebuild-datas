@@ -1,27 +1,27 @@
 [
   {
     "name": "系统配置审查",
-    "description": "全面检查实体、字段、触发器、审批流程、记录转换等配置的合理性（限管理员）",
+    "description": "全面体检系统配置，输出分级问题清单提前发现隐患（限管理员）",
     "file": "config-review.json"
   },
   {
     "name": "系统搭建助手",
-    "description": "从一句话需求搭建完整业务系统，批量创建实体字段并配套触发器与图表（限管理员）",
+    "description": "从一句话需求搭建完整业务系统，业务建模和自动化规则一并配齐（限管理员）",
     "file": "system-building.json"
   },
   {
     "name": "业务健康度诊断",
-    "description": "查看各实体的记录数量和字段填写情况",
+    "description": "摸底各项业务的数据量和使用情况，发现管理盲区",
     "file": "business-health.json"
   },
   {
     "name": "审批处理助手",
-    "description": "查看待我审批的记录，确认后协助审批",
+    "description": "集中查看待我审批的事项，确认后协助处理，不用再到处找审批",
     "file": "approval-process.json"
   },
   {
     "name": "文件录入助手",
-    "description": "解析上传的 Excel/CSV 等文件，批量新建或更新记录",
+    "description": "上传文件即可批量录入或更新数据，免去手工逐条填写",
     "file": "file-import.json"
   }
 ]
