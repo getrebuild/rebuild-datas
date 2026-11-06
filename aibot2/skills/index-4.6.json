@@ -5,6 +5,11 @@
     "file": "config-review.json"
   },
   {
+    "name": "系统搭建助手",
+    "description": "从一句话需求搭建完整业务系统，批量创建实体字段并配套触发器与图表（限管理员）",
+    "file": "system-building.json"
+  },
+  {
     "name": "业务健康度诊断",
     "description": "查看各实体的记录数量和字段填写情况",
     "file": "business-health.json"
